@@ -7,10 +7,10 @@
 ############
 
 # If it exists and is readable, source ~/.bash_local
-[ -r ~/.bash_local ] && . ~/.bash_local
+[[ -r ~/.bash_local ]] && . ~/.bash_local
 
 # If it exists and is readable, source ~/.git-completion.bash
-[ -r ~/.git-completion.bash ] && . ~/.git-completion.bash
+[[ -r ~/.git-completion.bash ]] && . ~/.git-completion.bash
 
 ############
 # General
@@ -21,6 +21,9 @@ shopt -s histverify
 
 # Append to the history file instead of overwriting it
 shopt -s histappend
+
+# Allow editing of failed substitutions
+shopt -s histreedit
 
 # Temporary file for deduplicating the history file
 tmp_histfile="/tmp/.bash_history.$$" 
@@ -57,7 +60,7 @@ reset="\033[m"
 symbol='$([[ $? -ne 0 ]] && printf "%b" "$red_raw" || printf "%b" "$reset_raw")'
 
 # Sync history before every prompt
-export PROMPT_COMMAND='sync_history;'
+# export PROMPT_COMMAND='sync_history;'
 
 # Set custom prompt
 export PS1="\[${UCOLOR}\]\u@\[${HCOLOR}\]\h\[$yellow\] \[$yellow\]\W\[$reset\] \\$ "
@@ -67,7 +70,7 @@ export PS1="\[${UCOLOR}\]\u@\[${HCOLOR}\]\h\[$yellow\] \[$yellow\]\W\[$reset\] \
 ############
 
 # Custom build path
-export PATH=/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin
+export PATH=/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin:$PATH
 
 # Ignore duplicates and commands that start with whitespace
 export HISTCONTROL=ignoreboth
@@ -78,7 +81,7 @@ export HISTCONTROL=ignoreboth
 ############
 
 # Alias ls variations (for OS X and other systems, respectively)
-if [ `uname -s` == "Darwin" ]; then
+if [[ $(uname -s) == "Darwin" ]]; then
     alias la="ls -AbGhlp"
 else
     alias la="ls -Abhlp --color=auto"
@@ -88,6 +91,4 @@ fi
 alias duck="du -cks ./* | sort -n"
 
 # Alias grep to color matches by default
-alias grep="grep --color=auto"
-alias egrep="egrep --color=auto"
-alias fgrep="fgrep --color=auto"
+set GREP_OPTIONS=--color-auto
