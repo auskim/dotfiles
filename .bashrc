@@ -13,6 +13,19 @@
 [[ -r ~/.git-completion.bash ]] && . ~/.git-completion.bash
 
 ############
+# Variables
+############
+
+# Add data and time to history
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+# Custom build path
+export PATH=/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin:$PATH
+
+# Ignore duplicates and commands that start with whitespace
+export HISTCONTROL=ignoreboth
+
+############
 # General
 ############
 
@@ -34,8 +47,9 @@ function sync_history() {
     history -a
 
     # Remove duplicates from the history file, keeping the most recent copies
+    # OS X specific: tail -r
     if [[ -r "$HISTFILE" ]]; then
-        reverse "$HISTFILE" | awk '!uniq[$0]++' | reverse > "$tmp_histfile"
+        tail -r "$HISTFILE" | awk '!uniq[$0]++' | tail -r > "$tmp_histfile"
         mv "$tmp_histfile" "$HISTFILE"
     fi
 
@@ -60,21 +74,10 @@ reset="\033[m"
 symbol='$([[ $? -ne 0 ]] && printf "%b" "$red_raw" || printf "%b" "$reset_raw")'
 
 # Sync history before every prompt
-# export PROMPT_COMMAND='sync_history;'
+export PROMPT_COMMAND='sync_history;'
 
 # Set custom prompt
 export PS1="\[${UCOLOR}\]\u@\[${HCOLOR}\]\h\[$yellow\] \[$yellow\]\W\[$reset\] \\$ "
-
-############
-# Variables
-############
-
-# Custom build path
-export PATH=/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin:$PATH
-
-# Ignore duplicates and commands that start with whitespace
-export HISTCONTROL=ignoreboth
-
 
 ############
 # Aliases
@@ -87,8 +90,17 @@ else
     alias la="ls -Abhlp --color=auto"
 fi
 
+# Alias for sudo (for comedic effect)
+alias pls="sudo"
+
+# Alias for rm (for more comedic effect)
+alias rip="rm -rf"
+
 # Alias for du (displays disk usage)
 alias duck="du -cks ./* | sort -n"
 
+# Alias for history
+alias hist="history 10"
+
 # Alias grep to color matches by default
-set GREP_OPTIONS=--color-auto
+export GREP_OPTIONS=--color-auto
