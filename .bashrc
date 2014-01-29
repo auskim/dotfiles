@@ -20,14 +20,25 @@
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
 # Custom build path
-export PATH=/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin:$PATH
+export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin:$PATH
 
 # Ignore duplicates and commands that start with whitespace
 export HISTCONTROL=ignoreboth
 
+# Alias grep to color matches by default
+# export GREP_OPTIONS=--color-auto
+
+# Path for bash completion usage
+export CDPATH=.:~:~/Documents:~/Documents/Research:~/Documents/Code
+
 ############
 # General
 ############
+
+# Use bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
 
 # Review commands with history expansion before executing
 shopt -s histverify
@@ -101,6 +112,3 @@ alias duck="du -cks ./* | sort -n"
 
 # Alias for history
 alias hist="history 10"
-
-# Alias grep to color matches by default
-export GREP_OPTIONS=--color-auto
