@@ -1,0 +1,80 @@
+#!/bin/bash
+
+# Last modified: 2013/07/31
+
+############
+# Source
+############
+
+# If it exists and is readable, source ~/.bash_local
+[[ -r ~/.bash_local ]] && . ~/.bash_local
+
+# If it exists and is readable, source ~/.git-completion.bash
+[[ -r ~/.git-completion.bash ]] && . ~/.git-completion.bash
+
+############
+# Variables
+############
+
+# Add data and time to history
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+# Custom build path
+export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin:$PATH
+
+# Ignore duplicates and commands that start with whitespace
+export HISTCONTROL=ignoreboth
+
+# Alias grep to color matches by default
+# export GREP_OPTIONS=--color-auto
+
+# Path for bash completion usage
+export CDPATH=.:~:~/Documents:~/Documents/Research:~/Documents/Code
+
+############
+# General
+############
+
+# Review commands with history expansion before executing
+shopt -s histverify
+
+# Append to the history file instead of overwriting it
+shopt -s histappend
+
+# Allow editing of failed substitutions
+shopt -s histreedit
+
+# Define colors
+red="\033[31m"
+green="\033[32m"
+yellow="\033[33m"
+reset="\033[m"
+
+# Red user if root, green otherwise
+[[ $UID -eq 0 ]] && UCOLOR="$red" || UCOLOR="$green"
+
+# Red @host if connected via ssh, green otherwise
+[[ -n "${!SSH_CONNECTION[@]}" ]] && HCOLOR="$red" || HCOLOR="$green"
+
+# Red $ or # if non-zero exit status, normal otherwise
+symbol='$([[ $? -ne 0 ]] && printf "%b" "$red_raw" || printf "%b" "$reset_raw")'
+
+# Set custom prompt
+export PS1="\[${UCOLOR}\]\u@\[${HCOLOR}\]\h\[$yellow\] \[$yellow\]\W\[$reset\] \\$ "
+
+############
+# Aliases
+############
+
+# Alias ls variations (for OS X and other systems, respectively)
+if [[ $(uname -s) == "Darwin" ]]; then
+    alias la="ls -AbGhlp"
+else
+    alias la="ls -Abhlp --color=auto"
+fi
+
+# Alias for du (displays disk usage)
+alias duck="du -cks ./* | sort -n"
+
+# Alias for history
+alias hist="history 10"
