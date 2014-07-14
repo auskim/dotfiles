@@ -44,6 +44,26 @@ shopt -s histappend
 # Allow editing of failed substitutions
 shopt -s histreedit
 
+# Temporary file for deduplicating the history file
+tmp_histfile="/tmp/.bash_history.$$" 
+
+# Synchronize each history list with history file
+function sync_history() {
+    # Append the history list to the history file
+    history -a
+
+    # Remove duplicates from the history file, keeping the most recent copies
+    # OS X specific: tail -r
+    if [[ -r "$HISTFILE" ]]; then
+        tail "$HISTFILE" | awk '!uniq[$0]++' | tail > "$tmp_histfile"
+        mv "$tmp_histfile" "$HISTFILE"
+    fi
+
+    # Clear the history list and read the history file
+    history -c
+    history -r
+}
+
 # Define colors
 red="\033[31m"
 green="\033[32m"
@@ -58,6 +78,9 @@ reset="\033[m"
 
 # Red $ or # if non-zero exit status, normal otherwise
 symbol='$([[ $? -ne 0 ]] && printf "%b" "$red_raw" || printf "%b" "$reset_raw")'
+
+# Sync history before every prompt
+export PROMPT_COMMAND='sync_history;'
 
 # Set custom prompt
 export PS1="\[${UCOLOR}\]\u@\[${HCOLOR}\]\h\[$yellow\] \[$yellow\]\W\[$reset\] \\$ "

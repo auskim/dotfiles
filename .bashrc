@@ -101,12 +101,6 @@ else
     alias la="ls -Abhlp --color=auto"
 fi
 
-# Alias for sudo (for comedic effect)
-alias pls="sudo"
-
-# Alias for rm (for more comedic effect)
-alias rip="rm -rf"
-
 # Alias for du (displays disk usage)
 alias duck="du -cks ./* | sort -n"
 
