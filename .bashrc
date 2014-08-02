@@ -16,6 +16,9 @@
 # Variables
 ############
 
+# Force all locale variables to standard
+export LC_ALL=C
+
 # Add data and time to history
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
