@@ -109,3 +109,6 @@ alias duck="du -cks ./* | sort -n"
 
 # Alias for history
 alias hist="history 10"
+
+# Alias for sudo (allow sudo of other aliases)
+alias sudo='sudo '
