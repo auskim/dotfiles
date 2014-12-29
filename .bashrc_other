@@ -29,7 +29,10 @@ export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bi
 export HISTCONTROL=ignoreboth
 
 # Alias grep to color matches by default
-export GREP_OPTIONS=--color-auto
+# export GREP_OPTIONS=--color-auto
+
+# Path for bash completion usage
+export CDPATH=.:~:~/Documents:~/Documents/Research:~/Documents/Code
 
 ############
 # General
@@ -65,10 +68,9 @@ function sync_history() {
 }
 
 # Define colors
-red="\033[1;31m"
-green="\033[1;32m"
-yellow="\033[1;33m"
-blue="\033[1;34m"
+red="\033[31m"
+green="\033[32m"
+yellow="\033[33m"
 reset="\033[m"
 
 # Red user if root, green otherwise
@@ -84,14 +86,18 @@ symbol='$([[ $? -ne 0 ]] && printf "%b" "$red_raw" || printf "%b" "$reset_raw")'
 export PROMPT_COMMAND='sync_history;'
 
 # Set custom prompt
-export PS1="\[${UCOLOR}\]\u@\[${HCOLOR}\]\h\[$blue\] \[$blue\]\W\[$yellow\] \\$\[$reset\] "
+export PS1="\[${UCOLOR}\]\u@\[${HCOLOR}\]\h\[$yellow\] \[$yellow\]\W\[$reset\] \\$ "
 
 ############
 # Aliases
 ############
 
 # Alias ls variations (for OS X and other systems, respectively)
-alias la="ls -Abhlp --color=auto"
+if [[ $(uname -s) == "Darwin" ]]; then
+    alias la="ls -AbGhlp"
+else
+    alias la="ls -Abhlp --color=auto"
+fi
 
 # Alias for du (displays disk usage)
 alias duck="du -cks ./* | sort -n"
