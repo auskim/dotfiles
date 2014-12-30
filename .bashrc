@@ -1,6 +1,20 @@
 #!/bin/bash
 
-# Last modified: 2013/07/31
+# Last modified: 29 Dec 14
+
+############
+# Setup
+############
+
+# Determine OS
+OS=`uname -s`
+
+# Define colors
+red="\033[1;31m"
+green="\033[1;32m"
+yellow="\033[1;33m"
+blue="\033[1;34m"
+reset="\033[m"
 
 ############
 # Source
@@ -19,6 +33,9 @@
 # Force all locale variables to standard
 export LC_ALL=C
 
+# Set terminal colors
+export TERM=xterm-256color
+
 # Add data and time to history
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
@@ -28,20 +45,44 @@ export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bi
 # Ignore duplicates and commands that start with whitespace
 export HISTCONTROL=ignoreboth
 
-# Alias grep to color matches by default
-# export GREP_OPTIONS=--color-auto
+# Set history file size
+export HISTSIZE=100
+
+# Add color matches to grep by default
+export GREP_OPTIONS="--color=auto"
+
+#TODO: figure out termcap color options
+# Add color options to less
+#export LESS="--RAW-CONTROL-CHARS"
+#[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
 
 # Path for bash completion usage
-export CDPATH=.:~:~/Documents:~/Documents/Research:~/Documents/Code
+# export CDPATH=.:~:~/Documents
 
 ############
-# General
+# Aliases
 ############
 
-# Use bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
+# Alias variations (for OS X and other systems, respectively)
+if [[ $OS == "Darwin" ]]; then
+    alias la="ls -AbGhlp"
+    alias tac="tail -r"
+else
+    alias la="ls -Abhlp --color=auto"
 fi
+
+# Alias for du (displays disk usage)
+alias duck="du -cks ./* | sort -n"
+
+# Alias for history
+alias hist="history 10"
+
+# Alias for sudo (allow sudo of other aliases)
+alias sudo='sudo '
+
+############
+# History
+############
 
 # Review commands with history expansion before executing
 shopt -s histverify
@@ -61,9 +102,8 @@ function sync_history() {
     history -a
 
     # Remove duplicates from the history file, keeping the most recent copies
-    # OS X specific: tail -r
     if [[ -r "$HISTFILE" ]]; then
-        tail -r "$HISTFILE" | awk '!uniq[$0]++' | tail -r > "$tmp_histfile"
+        tac "$HISTFILE" | awk '!uniq[$0]++' | tac > "$tmp_histfile"
         mv "$tmp_histfile" "$HISTFILE"
     fi
 
@@ -72,11 +112,9 @@ function sync_history() {
     history -r
 }
 
-# Define colors
-red="\033[31m"
-green="\033[32m"
-yellow="\033[33m"
-reset="\033[m"
+############
+# Prompt
+############
 
 # Red user if root, green otherwise
 [[ $UID -eq 0 ]] && UCOLOR="$red" || UCOLOR="$green"
@@ -91,24 +129,4 @@ symbol='$([[ $? -ne 0 ]] && printf "%b" "$red_raw" || printf "%b" "$reset_raw")'
 export PROMPT_COMMAND='sync_history;'
 
 # Set custom prompt
-export PS1="\[${UCOLOR}\]\u@\[${HCOLOR}\]\h\[$yellow\] \[$yellow\]\W\[$reset\] \\$ "
-
-############
-# Aliases
-############
-
-# Alias ls variations (for OS X and other systems, respectively)
-if [[ $(uname -s) == "Darwin" ]]; then
-    alias la="ls -AbGhlp"
-else
-    alias la="ls -Abhlp --color=auto"
-fi
-
-# Alias for du (displays disk usage)
-alias duck="du -cks ./* | sort -n"
-
-# Alias for history
-alias hist="history 10"
-
-# Alias for sudo (allow sudo of other aliases)
-alias sudo='sudo '
+export PS1="\[${UCOLOR}\]\u@\[${HCOLOR}\]\h\[$blue\] \[$blue\]\W\[$yellow\] \\$\[$reset\] "
