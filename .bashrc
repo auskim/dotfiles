@@ -66,7 +66,6 @@ export GREP_OPTIONS="--color=auto"
 # Alias variations (for OS X and other systems, respectively)
 if [[ $OS == "Darwin" ]]; then
     alias la="ls -AbGhlp"
-    alias tac="tail -r"
 else
     alias la="ls -Abhlp --color=auto"
 fi
