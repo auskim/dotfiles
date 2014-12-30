@@ -1,4 +1,4 @@
-" Last modified: 2013/07/31
+" Last modified: 30 Dec 14
 
 " ------------------------------------------------------------------------------
 " General
@@ -17,7 +17,7 @@ syntax on
 set background=dark
 
 " color scheme
-colorscheme wombat256mod
+colorscheme flatlandia
 
 " Guarantee backspace functionality
 set backspace=indent,eol,start
