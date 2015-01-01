@@ -6,6 +6,9 @@
 # Setup
 ############
 
+# Use vim key bindings in bash
+set -o vi
+
 # Determine OS
 OS=`uname -s`
 
