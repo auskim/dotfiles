@@ -44,7 +44,9 @@ if [[ $OS == "Darwin" ]]; then
     export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 fi
 
-export PATH=/usr/local/etc:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:/opt/X11/bin:/usr/texbin:$PATH
+export PATH=/usr/texbin:~/.node/bin:/opt/X11/bin:$PATH
+
+export PATH=/usr/local/etc:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:$PATH
 
 export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 
