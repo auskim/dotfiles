@@ -40,7 +40,13 @@ export TERM=xterm-256color
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
 # Custom build path
-export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin:$PATH
+if [[ $OS == "Darwin" ]]; then
+    export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+fi
+
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:/opt/X11/bin:/usr/texbin:$PATH
+
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 
 # Ignore duplicates and commands that start with whitespace
 export HISTCONTROL=ignoreboth
@@ -66,8 +72,6 @@ export GREP_OPTIONS="--color=auto"
 # Alias variations (for OS X and other systems, respectively)
 if [[ $OS == "Darwin" ]]; then
     alias la="ls -AbGhlp"
-#TODO: temporary fix, doesn't seem to work
-    alias tac="tail -r"
 else
     alias la="ls -Abhlp --color=auto"
 fi
@@ -103,6 +107,9 @@ function sync_history() {
     history -a
 
     # Remove duplicates from the history file, keeping the most recent copies
+
+    # IMPORTANT: OS X/BSD requires installation of coreutils pkg for tac
+    # Available via homebrew/pkg_add respectively
     if [[ -r "$HISTFILE" ]]; then
         tac "$HISTFILE" | awk '!uniq[$0]++' | tac > "$tmp_histfile"
         mv "$tmp_histfile" "$HISTFILE"
