@@ -44,7 +44,7 @@ if [[ $OS == "Darwin" ]]; then
     export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 fi
 
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:/opt/X11/bin:/usr/texbin:$PATH
+export PATH=/usr/local/etc:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:/opt/X11/bin:/usr/texbin:$PATH
 
 export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 
@@ -62,8 +62,9 @@ export GREP_OPTIONS="--color=auto"
 #export LESS="--RAW-CONTROL-CHARS"
 #[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
 
+#TODO: Add bash completion
 # Path for bash completion usage
-# export CDPATH=.:~:~/Documents
+# export CDPATH=.:~:~/Documents:~/Documents/Projects
 
 ############
 # Aliases
@@ -72,6 +73,7 @@ export GREP_OPTIONS="--color=auto"
 # Alias variations (for OS X and other systems, respectively)
 if [[ $OS == "Darwin" ]]; then
     alias la="ls -AbGhlp"
+    alias tac="tail -r"
 else
     alias la="ls -Abhlp --color=auto"
 fi
