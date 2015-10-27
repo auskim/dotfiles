@@ -67,10 +67,6 @@ export GREP_OPTIONS="--color=auto"
 #export LESS="--RAW-CONTROL-CHARS"
 #[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
 
-#TODO: Add bash completion
-# Path for bash completion usage
-# export CDPATH=.:~:~/Documents:~/Documents/Projects
-
 ############
 # Aliases
 ############
@@ -93,8 +89,8 @@ alias hist="history 10"
 alias sudo='sudo '
 
 # Aliases for showing and hiding files in finder
-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
 ############
 # History
