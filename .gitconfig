@@ -26,5 +26,5 @@
     l = log
     rev = revert
     rv = remote -v
-#[push]
-#	default = simple
+[push]
+	default = simple
