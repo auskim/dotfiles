@@ -26,9 +26,6 @@ reset="\033[m"
 # If it exists and is readable, source ~/.bash_local
 [[ -r ~/.bash_local ]] && . ~/.bash_local
 
-# If it exists and is readable, source ~/.git-completion.bash
-[[ -r ~/.git-completion.bash ]] && . ~/.git-completion.bash
-
 ############
 # Variables
 ############
@@ -42,16 +39,17 @@ export TERM=xterm-256color
 # Add data and time to history
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
-# Custom build path
-if [[ $OS == "Darwin" ]]; then
-    export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-fi
+############
 
+# Custom build path
+
+# OCF utilities path
+export PATH=/opt/ocf/bin:/opt/ocf/sbin:$PATH
+
+# Miscellaneous
 export PATH=/usr/texbin:~/.node/bin:/opt/X11/bin:$PATH
 
-export PATH=/usr/local/etc:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:$PATH
-
-export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
 
 # Ignore duplicates and commands that start with whitespace
 export HISTCONTROL=ignoreboth
@@ -89,8 +87,10 @@ alias hist="history 10"
 alias sudo='sudo '
 
 # Aliases for showing and hiding files in finder
-alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+if [[ $OS == "Darwin" ]]; then
+    alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+    alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+fi
 
 ############
 # History
@@ -144,4 +144,4 @@ symbol='$([[ $? -ne 0 ]] && printf "%b" "$red_raw" || printf "%b" "$reset_raw")'
 export PROMPT_COMMAND='sync_history;'
 
 # Set custom prompt
-export PS1="\[${UCOLOR}\]\u@\[${HCOLOR}\]\h\[$blue\] \[$blue\]\W\[$yellow\] \\$\[$reset\] "
+export PS1="\[${UCOLOR}\]\u\[$yellow\]@\[${HCOLOR}\]\h\[$blue\] \[$blue\]\W\[$yellow\] \\$\[$reset\] "
