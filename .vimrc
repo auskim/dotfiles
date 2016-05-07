@@ -1,4 +1,4 @@
-" Last modified: 30 Dec 14
+" Last modified: 7 May 16
 
 " ------------------------------------------------------------------------------
 " General
@@ -54,6 +54,7 @@ set suffixes+=.class,.pdf,.pyc
 
 " Show line numbers
 set number
+set relativenumber
 
 " Show 2 lines of context when scrolling and during search
 set scrolloff=2
