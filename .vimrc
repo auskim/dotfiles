@@ -1,132 +1,161 @@
-" Last modified: 7 May 16
+" Vimrc for auskim. Use freely.
 
-" ------------------------------------------------------------------------------
-" General
-" ------------------------------------------------------------------------------
+" TODO
+" window pane shortcuts
 
-" Avoid compatibility features
-set nocompatible
+" Sections (for navigation):
+" = General =
+" = Plugins =
+" = Keybindings =
+" = Commands =
+" = Display =
+" = Spacing =
+" = Search =
 
-" 256 colors
-set t_Co=256
+" === General ===
 
-" Enable syntax highlighting
-syntax on
+set nocompatible               " Avoid compatibility features
+set t_Co=256                   " 256 colors
+syntax on                      " Enable syntax highlighting
+set background=dark            " Dark background
+colorscheme flatland           " Color scheme
+set laststatus=2               " Status bar always visible
+set backspace=indent,eol,start " Guarantee backspace functionality
+filetype plugin indent off     " Disable filetype plugins and auto indentation
+let mapleader = " "            " Set leader key
 
-" Dark background
-set background=dark
+" === Plugins ===
 
-" color scheme
-colorscheme flatlandia
+call plug#begin() " Load vim-plug
 
-" Guarantee backspace functionality
-set backspace=indent,eol,start
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/fzf', {'dir' : '~/.fzf', 'do': './install --all'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Shougo/vimproc.vim', {'build': {'mac': 'make', 'linux': 'make'}}
+Plug 'Shougo/unite.vim'
+Plug 'luochen1990/rainbow'
+Plug 'airblade/vim-gitgutter'
+Plug 'majutsushi/tagbar'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'gcmt/taboo.vim'
+Plug 'rking/ag.vim'
 
-" Disable filetype plugins and auto indentation
-filetype plugin indent off
+call plug#end()
 
-" Detect markdown files
-autocmd BufRead,BufNewFile *.{markdown,md,mdown,mdwn,mkd,mkdn} set filetype=mkd
+" vim-plug
+nnoremap <leader>pi :PlugInstall<cr>
+nnoremap <leader>pu :PlugUpdate<cr>
+nnoremap <leader>ps :PlugStatus<cr>
+nnoremap <leader>pc :PlugClean<cr>
 
-" ------------------------------------------------------------------------------
-" Command line
-" ------------------------------------------------------------------------------
+" vim-airline
+let g:airline_theme='powerlineish'
+" let g:airline_powerline_fonts=1
+let g:airline_section_b = airline#section#create(['%t', '%m', '%y', ' ', '%r'])
+let g:airline_section_c = airline#section#create(['tagbar'])
+let g:airline_section_gutter = airline#section#create(['%='])
+let g:airline_section_x = airline#section#create(['branch', ' | ', 'hunks'])
+let g:airline_section_y = airline#section#create(['%03b', ' ', '0x%02B'])
+let g:airline_section_z = airline#section#create(['%l', '/', '%L', ' (', '%p', '%%) : ', '%c'])
+let g:airline_left_sep='>>'
+let g:airline_right_sep='<<'
 
-" Save more history and undo levels
-set history=1000 undolevels=1000
+" fzf
+nnoremap <leader>f :FZF<cr>
 
-" Show current command info
-set showcmd
-set report=0
+" taboo
+let g:taboo_tab_format=" %N %f%m "
+let g:taboo_modified_tab_flag="[+]"
 
-" Warn if executing shell command without save
-set warn
+" vim-easy-align
+xmap <leader>a <Plug>(EasyAlign)
+nmap <leader>a <Plug>(EasyAlign)
 
-" Complete to longest common string and list possible matches, then iterate
-set wildmode=list:longest,full
+" limelight.vim
+let g:limelight_conceal_ctermfg = 240
+nnoremap <leader>l :Limelight<cr>
+nnoremap <leader>L :Limelight!<cr>
 
-" Give compiled files, etc, lower priority in wildcard matching
-set suffixes+=.class,.pdf,.pyc
+" tagbar
+nnoremap <leader>t :TagbarToggle<cr>
 
-" ------------------------------------------------------------------------------
-" Format
-" ------------------------------------------------------------------------------
+" gundo
+nnoremap <leader>u :GundoToggle<cr>
 
-" Show line numbers
-set number
-set relativenumber
+" rainbow
+let g:rainbow_active = 1
+nnoremap <leader>r :RainbowToggleOn<cr>
 
-" Show 2 lines of context when scrolling and during search
-set scrolloff=2
+"unite.vim
+nnoremap <leader>/ :Unite grep:~/Codebases/<cr>
+nnoremap <leader>b :Unite -quick-match buffer<cr>
 
-" Show parts of lines that are cut off at the bottom
-set display=lastline
+" === Keybindings ===
 
-" Do not display intro message at start and shorten all file messages
-set shortmess+=Ia
+nnoremap J }
+nnoremap K {
+nnoremap { <PageDown>
+nnoremap } <PageUp>
+nnoremap L gt
+nnoremap H gT
+nnoremap ; <C-o>
+nnoremap ' <C-i>
 
-" ------------------------------------------------------------------------------
-" Tabbing
-" ------------------------------------------------------------------------------
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
 
-" Use spaces instead of tabs
-set expandtab
+nnoremap <tab> :
+nnoremap <leader>n :tabnew 
+inoremap jk <Esc>
+nnoremap <Enter> o<Esc>
+cnoremap <c-w> <home>\<<end>\>
+nnoremap <leader>h :nohlsearch<CR>
+nnoremap <leader><tab> mzgg=G'z
 
-" Display tabs as 4 spaces (necessary for retab)
-set tabstop=4
+nnoremap <leader>s :so %<cr>
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :wq<cr>
+nnoremap <leader>Q :wqall<cr>
 
-" Tab in insert mode inserts 4 spaces
-set softtabstop=4
+" === Commands ===
 
-" Insert 4 spaces per tab when shifting, rounding to the nearest tab
-set shiftwidth=4 shiftround
+set history=1000 undolevels=1000 " Save more history and undo levels
+set showcmd report=0             " Show current command info
+set warn                         " Warn if executing shell command without save
+set wildmode=list:longest,full   " Complete to longest common string and list possible matches, then iterate
+set suffixes+=.class,.pdf,.pyc   " Give compiled files, etc, lower priority in wildcard matching
 
-" Copy indentation of current line for new lines
-set autoindent
+" === Display ===
 
-" Toggles auto formatting of pasted material
-set pastetoggle=<F4>
+set number relativenumber    " Show line numbers
+set scrolloff=2              " Show 2 lines of context when scrolling and during search
+set display=lastline         " Show parts of lines that are cut off at the bottom
+set shortmess+=Ia            " Do not display intro message at start and shorten all file messages
+set textwidth=0 wrapmargin=0 " Do not auto newline beyond a certain width
 
+" === Spacing ===
+
+set expandtab               " Use spaces instead of tabs
+set tabstop=4               " Display tabs as 4 spaces (necessary for retab)
+set softtabstop=4           " Tab in insert mode inserts 4 spaces
+set shiftwidth=4 shiftround " Insert 4 spaces per tab when shifting, rounding to the nearest tab
+set autoindent              " Copy indentation of current line for new lines
+set pastetoggle=<F2>        " Toggles auto formatting of pasted material
 " Override tabbing settings for css, html, js with 2 spaces per tab
 autocmd FileType css,html,js setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
-" ------------------------------------------------------------------------------
-" Search
-" ------------------------------------------------------------------------------
+" === Search ===
 
-" Highlight search matches
-set hlsearch
-
-" Search incrementally, i.e. as queries are typed
-set incsearch
-
-" Ignore case for search, but override for capitalized queries
-set ignorecase smartcase
-
-" Disables highlighting for the current search
-nnoremap <F2> :nohlsearch<CR>
-
-" ------------------------------------------------------------------------------
-" Status line
-" ------------------------------------------------------------------------------
-
-" Always show status line
-set laststatus=2
-
-" File name, modified, read-only, help, and preview
-set statusline=%f%m%r%h%w
-
-" File type (if any), file format, and file encoding (or encoding if none)
-set statusline+=\ %y%{&ft!=''?'\ ':''}[%{&ff},%{&fenc!=''?&fenc:&enc}]
-
-" Split between left and right aligned items; truncate from here if necessary
-set statusline+=%=%<
-
-" Character under cursor in ASCII and hex
-set statusline+=[\%03b,0x\%02B]
-
-" Line/lines and column, including virtual column if applicable
-set statusline+=\ [%l/%L,%c%V]
-
-" Percent of file in terms of current line and section of file shown
-set statusline+=\ [%p%%,%P]
+set hlsearch             " Highlight search matches
+set incsearch            " Search incrementally, i.e. as queries are typed
+set ignorecase smartcase " Ignore case for search, but override for capitalized queries
