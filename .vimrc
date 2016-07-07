@@ -2,17 +2,9 @@
 
 " TODO
 " window pane shortcuts
+" keys used with leader: n,h,q,w,r,l,p,b,s,/r,u,t,a,f
 
-" Sections (for navigation):
-" = General =
-" = Plugins =
-" = Keybindings =
-" = Commands =
-" = Display =
-" = Spacing =
-" = Search =
-
-" === General ===
+" === General === {{{
 
 set nocompatible               " Avoid compatibility features
 set t_Co=256                   " 256 colors
@@ -23,8 +15,10 @@ set laststatus=2               " Status bar always visible
 set backspace=indent,eol,start " Guarantee backspace functionality
 filetype plugin indent off     " Disable filetype plugins and auto indentation
 let mapleader = " "            " Set leader key
+set modelines=1                " Allow mode line for this file
+" }}}
 
-" === Plugins ===
+" === Plugins === {{{
 
 call plug#begin() " Load vim-plug
 
@@ -92,8 +86,9 @@ nnoremap <leader>r :RainbowToggleOn<cr>
 "unite.vim
 nnoremap <leader>/ :Unite grep:~/Codebases/<cr>
 nnoremap <leader>b :Unite -quick-match buffer<cr>
+" }}}
 
-" === Keybindings ===
+" === Keybindings === {{{
 
 nnoremap J }
 nnoremap K {
@@ -126,24 +121,28 @@ nnoremap <leader>s :so %<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :wq<cr>
 nnoremap <leader>Q :wqall<cr>
+"}}}
 
-" === Commands ===
+" === Commands === {{{
 
 set history=1000 undolevels=1000 " Save more history and undo levels
 set showcmd report=0             " Show current command info
 set warn                         " Warn if executing shell command without save
 set wildmode=list:longest,full   " Complete to longest common string and list possible matches, then iterate
 set suffixes+=.class,.pdf,.pyc   " Give compiled files, etc, lower priority in wildcard matching
+"}}}
 
-" === Display ===
+" === Display === {{{
 
 set number relativenumber    " Show line numbers
 set scrolloff=2              " Show 2 lines of context when scrolling and during search
 set display=lastline         " Show parts of lines that are cut off at the bottom
 set shortmess+=Ia            " Do not display intro message at start and shorten all file messages
 set textwidth=0 wrapmargin=0 " Do not auto newline beyond a certain width
+set lazyredraw
+"}}}
 
-" === Spacing ===
+" === Spacing === {{{
 
 set expandtab               " Use spaces instead of tabs
 set tabstop=4               " Display tabs as 4 spaces (necessary for retab)
@@ -153,9 +152,13 @@ set autoindent              " Copy indentation of current line for new lines
 set pastetoggle=<F2>        " Toggles auto formatting of pasted material
 " Override tabbing settings for css, html, js with 2 spaces per tab
 autocmd FileType css,html,js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+"}}}
 
-" === Search ===
+" === Search === {{{
 
 set hlsearch             " Highlight search matches
 set incsearch            " Search incrementally, i.e. as queries are typed
 set ignorecase smartcase " Ignore case for search, but override for capitalized queries
+" }}}
+
+" vim:foldmethod=marker:foldlevel=0

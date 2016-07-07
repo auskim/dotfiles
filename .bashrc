@@ -26,6 +26,8 @@ reset="\033[m"
 # If it exists and is readable, source ~/.bash_local
 [[ -r ~/.bash_local ]] && . ~/.bash_local
 
+# Source fzf
+[ -f ~/.fzf/.fzf.bash ] && source ~/.fzf/.fzf.bash
 ############
 # Variables
 ############
