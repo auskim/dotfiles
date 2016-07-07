@@ -1,8 +1,10 @@
 " Vimrc for auskim. Use freely.
+" keys used with leader: n,h,q,w,r,l,p,b,s,/r,u,t,a,f
 
 " TODO
 " window pane shortcuts
-" keys used with leader: n,h,q,w,r,l,p,b,s,/r,u,t,a,f
+" colorscheme for folds
+" buffer management plugin (?)
 
 " === General === {{{
 
@@ -27,8 +29,6 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/fzf', {'dir' : '~/.fzf', 'do': './install --all'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Shougo/vimproc.vim', {'build': {'mac': 'make', 'linux': 'make'}}
-Plug 'Shougo/unite.vim'
 Plug 'luochen1990/rainbow'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
@@ -83,9 +83,8 @@ nnoremap <leader>u :GundoToggle<cr>
 let g:rainbow_active = 1
 nnoremap <leader>r :RainbowToggleOn<cr>
 
-"unite.vim
-nnoremap <leader>/ :Unite grep:~/Codebases/<cr>
-nnoremap <leader>b :Unite -quick-match buffer<cr>
+" ag
+nnoremap <leader>/ :Ag! --ignore-dir Library 
 " }}}
 
 " === Keybindings === {{{
