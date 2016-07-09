@@ -1,10 +1,11 @@
 " Vimrc for auskim. Use freely.
-" keys used with leader: n,h,q,w,r,l,p,b,s,/r,u,t,a,f
+" keys used with leader: n,h,q,w,r,l,p,b,s,/,r,u,t,a,f,c
 
 " TODO
 " window pane shortcuts
 " colorscheme for folds
-" buffer management plugin (?)
+" buffer management
+" find more useless keys to remap
 
 " === General === {{{
 
@@ -18,24 +19,24 @@ set backspace=indent,eol,start " Guarantee backspace functionality
 filetype plugin indent off     " Disable filetype plugins and auto indentation
 let mapleader = " "            " Set leader key
 set modelines=1                " Allow mode line for this file
+set wildmenu
 " }}}
-
 " === Plugins === {{{
 
 call plug#begin() " Load vim-plug
 
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/fzf', {'dir' : '~/.fzf', 'do': './install --all'}
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'luochen1990/rainbow'
 Plug 'airblade/vim-gitgutter'
+Plug 'gcmt/taboo.vim'
+Plug 'junegunn/fzf', {'dir' : '~/.fzf', 'do': './install --all'}
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'luochen1990/rainbow'
 Plug 'majutsushi/tagbar'
+Plug 'rking/ag.vim'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'gcmt/taboo.vim'
-Plug 'rking/ag.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -47,7 +48,6 @@ nnoremap <leader>pc :PlugClean<cr>
 
 " vim-airline
 let g:airline_theme='powerlineish'
-" let g:airline_powerline_fonts=1
 let g:airline_section_b = airline#section#create(['%t', '%m', '%y', ' ', '%r'])
 let g:airline_section_c = airline#section#create(['tagbar'])
 let g:airline_section_gutter = airline#section#create(['%='])
@@ -86,18 +86,27 @@ nnoremap <leader>r :RainbowToggleOn<cr>
 " ag
 nnoremap <leader>/ :Ag! --ignore-dir Library 
 " }}}
-
 " === Keybindings === {{{
 
+" Movement
 nnoremap J }
 nnoremap K {
 nnoremap { <PageDown>
 nnoremap } <PageUp>
 nnoremap L gt
 nnoremap H gT
+
+" Jumps
 nnoremap ; <C-o>
 nnoremap ' <C-i>
 
+" Folds
+nnoremap <leader><Space> za
+
+" Marks
+nnoremap ' `
+
+" Tabs
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
 nnoremap <leader>3 3gt
@@ -107,21 +116,23 @@ nnoremap <leader>6 6gt
 nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
-
-nnoremap <tab> :
 nnoremap <leader>n :tabnew 
+
+" Misc
+nnoremap <tab> :
 inoremap jk <Esc>
 nnoremap <Enter> o<Esc>
 cnoremap <c-w> <home>\<<end>\>
 nnoremap <leader>h :nohlsearch<CR>
-nnoremap <leader><tab> mzgg=G'z
+nnoremap <leader>c :tabnew .vimrc<cr>
 
+" Save and quit
 nnoremap <leader>s :so %<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :wq<cr>
-nnoremap <leader>Q :wqall<cr>
+nnoremap <leader>Q :q!<cr>
+nnoremap <leader>z :wqall<cr>
 "}}}
-
 " === Commands === {{{
 
 set history=1000 undolevels=1000 " Save more history and undo levels
@@ -130,7 +141,6 @@ set warn                         " Warn if executing shell command without save
 set wildmode=list:longest,full   " Complete to longest common string and list possible matches, then iterate
 set suffixes+=.class,.pdf,.pyc   " Give compiled files, etc, lower priority in wildcard matching
 "}}}
-
 " === Display === {{{
 
 set number relativenumber    " Show line numbers
@@ -138,9 +148,8 @@ set scrolloff=2              " Show 2 lines of context when scrolling and during
 set display=lastline         " Show parts of lines that are cut off at the bottom
 set shortmess+=Ia            " Do not display intro message at start and shorten all file messages
 set textwidth=0 wrapmargin=0 " Do not auto newline beyond a certain width
-set lazyredraw
+set lazyredraw               " Redraw screen only when necessary
 "}}}
-
 " === Spacing === {{{
 
 set expandtab               " Use spaces instead of tabs
@@ -149,15 +158,24 @@ set softtabstop=4           " Tab in insert mode inserts 4 spaces
 set shiftwidth=4 shiftround " Insert 4 spaces per tab when shifting, rounding to the nearest tab
 set autoindent              " Copy indentation of current line for new lines
 set pastetoggle=<F2>        " Toggles auto formatting of pasted material
-" Override tabbing settings for css, html, js with 2 spaces per tab
-autocmd FileType css,html,js setlocal tabstop=2 softtabstop=2 shiftwidth=2
 "}}}
+" === Autocommands === {{{
 
+augroup auto
+    " Override tabbing settings for css, html, js with 2 spaces per tab
+    autocmd FileType css,html,js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END"}}}
 " === Search === {{{
 
 set hlsearch             " Highlight search matches
 set incsearch            " Search incrementally, i.e. as queries are typed
 set ignorecase smartcase " Ignore case for search, but override for capitalized queries
 " }}}
+" === Backups === {{{
+
+set backup writebackup        " Enable backups
+set dir=~/.tmp,/var/tmp       " Set swapfile directory
+set backupdir=~/.tmp,/var/tmp " Set backup directory
+"}}}
 
 " vim:foldmethod=marker:foldlevel=0
