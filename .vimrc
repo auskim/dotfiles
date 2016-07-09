@@ -96,6 +96,16 @@ nnoremap } <PageUp>
 nnoremap L gt
 nnoremap H gT
 
+" Panes
+nmap <Up> <C-w>k
+nmap <Down> <C-w>j
+nmap <Left> <C-w>h
+nmap <Right> <C-w>l
+imap <Up> <Esc><C-w>k
+imap <Down> <Esc><C-w>j
+imap <Left> <Esc><C-w>h
+imap <Right> <Esc><C-w>l
+
 " Jumps
 nnoremap ; <C-o>
 nnoremap ' <C-i>
@@ -125,6 +135,7 @@ nnoremap <Enter> o<Esc>
 cnoremap <c-w> <home>\<<end>\>
 nnoremap <leader>h :nohlsearch<CR>
 nnoremap <leader>c :tabnew .vimrc<cr>
+nnoremap <S-u> <C-r>
 
 " Save and quit
 nnoremap <leader>s :so %<cr>
@@ -132,6 +143,7 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>q :wq<cr>
 nnoremap <leader>Q :q!<cr>
 nnoremap <leader>z :wqall<cr>
+nnoremap Q <nop> " Disable ex mode because i have no idea what to do with it
 "}}}
 " === Commands === {{{
 
