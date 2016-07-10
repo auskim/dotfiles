@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Last modified: 29 Dec 14
-
 ############
 # Setup
 ############
@@ -28,6 +26,10 @@ reset="\033[m"
 
 # Source fzf
 [ -f ~/.fzf/.fzf.bash ] && source ~/.fzf/.fzf.bash
+
+# Source local variables
+[ -f ~/.bash_vars ] && source ~/.bash_vars
+
 ############
 # Variables
 ############
@@ -87,6 +89,9 @@ alias hist="history 10"
 
 # Alias for sudo (allow sudo of other aliases)
 alias sudo='sudo '
+
+# Alias for editing notes
+alias vnote="vim -c \"cd `echo $NOTE_DIR`\" `echo $NOTE_DIR`/masterlist.txt"
 
 # Aliases for showing and hiding files in finder
 if [[ $OS == "Darwin" ]]; then

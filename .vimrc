@@ -91,8 +91,8 @@ nnoremap <leader>/ :Ag! --ignore-dir Library
 " Movement
 nnoremap J }
 nnoremap K {
-nnoremap { <PageDown>
-nnoremap } <PageUp>
+nnoremap { <PageDown>zz
+nnoremap } <PageUp>zz
 nnoremap L gt
 nnoremap H gT
 
@@ -114,7 +114,7 @@ nnoremap ' <C-i>
 nnoremap <leader><Space> za
 
 " Marks
-nnoremap " `
+nnoremap : `
 
 " Tabs
 nnoremap <leader>1 1gt
@@ -186,8 +186,8 @@ set ignorecase smartcase " Ignore case for search, but override for capitalized 
 " === Backups === {{{
 
 set backup writebackup        " Enable backups
-set dir=~/.tmp,/var/tmp       " Set swapfile directory
-set backupdir=~/.tmp,/var/tmp " Set backup directory
+set dir=~/.vim,/var/tmp       " Set swapfile directory
+set backupdir=~/.vim,/var/tmp " Set backup directory
 "}}}
 
 " vim:foldmethod=marker:foldlevel=0
