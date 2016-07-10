@@ -1,11 +1,11 @@
 " Vimrc for auskim. Use freely.
 " keys used with leader: n,h,q,w,r,l,p,b,s,/,r,u,t,a,f,c
 
-" TODO
-" window pane shortcuts
+" === TODO === {{{
 " colorscheme for folds
 " buffer management
 " find more useless keys to remap
+"}}}
 
 " === General === {{{
 
@@ -114,7 +114,7 @@ nnoremap ' <C-i>
 nnoremap <leader><Space> za
 
 " Marks
-nnoremap ' `
+nnoremap " `
 
 " Tabs
 nnoremap <leader>1 1gt
@@ -131,7 +131,7 @@ nnoremap <leader>n :tabnew
 " Misc
 nnoremap <tab> :
 inoremap jk <Esc>
-nnoremap <Enter> o<Esc>
+nnoremap <Enter> i<cr><Esc>
 cnoremap <c-w> <home>\<<end>\>
 nnoremap <leader>h :nohlsearch<CR>
 nnoremap <leader>c :tabnew .vimrc<cr>
