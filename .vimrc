@@ -128,6 +128,8 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <leader>n :tabnew<cr>
+nnoremap <leader>N :tabnew 
+nnoremap <leader>e :e 
 
 " Misc
 nnoremap <tab> :
@@ -141,7 +143,7 @@ nnoremap <S-u> <C-r>
 " Save and quit
 nnoremap <leader>s :so %<cr>
 nnoremap <leader>w :w<cr>
-nnoremap <leader>q :wq<cr>
+nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :q!<cr>
 nnoremap <leader>z :wqall<cr>
 nnoremap Q <nop> " Disable ex mode because i have no idea what to do with it
