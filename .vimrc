@@ -1,5 +1,5 @@
 " Vimrc for auskim. Use freely.
-" keys used with leader: n,h,q,w,r,l,p,b,s,/,r,u,t,a,f,c
+" keys used with leader: n,h,q,w,r,l,p,b,s,/,r,u,t,a,f,c,m
 
 " === TODO === {{{
 " colorscheme for folds
@@ -33,7 +33,6 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'luochen1990/rainbow'
 Plug 'majutsushi/tagbar'
-Plug 'rking/ag.vim'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -59,7 +58,15 @@ let g:airline_left_sep='>>'
 let g:airline_right_sep='<<'
 
 " fzf
-nnoremap <leader>f :FZF<cr>
+nnoremap <leader>ff :Files %:p:h<cr>
+nnoremap <leader>fg :GFiles<cr>
+nnoremap <leader>fc :Files $CODE_DIR<cr>
+nnoremap <leader>h :Helptags<cr>
+nnoremap <leader><Tab> :History:<cr>
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>m :Marks<cr>
+nnoremap <leader>c :Commits<cr>
+nnoremap <leader>/ :Ag! 
 
 " taboo
 let g:taboo_tab_format=" %N %f%m "
@@ -83,9 +90,6 @@ nnoremap <leader>u :GundoToggle<cr>
 " rainbow
 let g:rainbow_active = 1
 nnoremap <leader>r :RainbowToggleOn<cr>
-
-" ag
-nnoremap <leader>/ :Ag! --ignore-dir Library 
 " }}}
 " === Keybindings === {{{
 
@@ -136,8 +140,7 @@ nnoremap <tab> :
 inoremap jk <Esc>
 nmap <enter> o<Esc>
 cnoremap <c-w> <home>\<<end>\>
-nnoremap <leader>h :nohlsearch<CR>
-nnoremap <leader>c :cd $CODE_DIR<cr>
+nnoremap <F2> :nohlsearch<CR>
 nnoremap <S-u> <C-r>
 
 " Save and quit

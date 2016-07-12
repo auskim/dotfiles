@@ -6,13 +6,13 @@ alias tac="tail -r"
 alias duck="du -cks ./* | sort -n"
 
 # Alias for history
-alias hist="history 10"
+alias hist="history | tail"
 
 # Alias for sudo (allow sudo of other aliases)
 alias sudo='sudo '
 
 # Alias for editing notes
-alias vnote="vim -c \"cd `echo $NOTE_DIR`\" `echo $NOTE_DIR`/masterlist.txt"
+alias vnote="vim -c \"cd $NOTE_DIR\" $NOTE_DIR/masterlist.txt"
 
 # Aliases for showing and hiding files in finder
 if [[ $OS == "Darwin" ]]; then
