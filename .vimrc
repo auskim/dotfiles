@@ -27,7 +27,8 @@ call plug#begin() " Load vim-plug
 
 Plug 'airblade/vim-gitgutter'
 Plug 'gcmt/taboo.vim'
-Plug 'junegunn/fzf', {'dir' : '~/.fzf', 'do': './install --all'}
+Plug 'junegunn/fzf', {'dir' : '~/.fzf', 'do': './install --bin'}
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'luochen1990/rainbow'
@@ -116,7 +117,7 @@ nnoremap <leader><Space> za
 " Marks
 nnoremap : `
 
-" Tabs
+" Tabs (switch tabs easily by using leader)
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
 nnoremap <leader>3 3gt
@@ -126,15 +127,15 @@ nnoremap <leader>6 6gt
 nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
-nnoremap <leader>n :tabnew 
+nnoremap <leader>n :tabnew<cr>
 
 " Misc
 nnoremap <tab> :
 inoremap jk <Esc>
-nnoremap <Enter> i<cr><Esc>
+nmap <enter> o<Esc>
 cnoremap <c-w> <home>\<<end>\>
 nnoremap <leader>h :nohlsearch<CR>
-nnoremap <leader>c :tabnew .vimrc<cr>
+nnoremap <leader>c :cd $CODE_DIR<cr>
 nnoremap <S-u> <C-r>
 
 " Save and quit

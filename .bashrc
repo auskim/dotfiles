@@ -24,11 +24,11 @@ reset="\033[m"
 # If it exists and is readable, source ~/.bash_local
 [[ -r ~/.bash_local ]] && . ~/.bash_local
 
-# Source fzf
-[ -f ~/.fzf/.fzf.bash ] && source ~/.fzf/.fzf.bash
-
-# Source local variables
-[ -f ~/.bash_vars ] && source ~/.bash_vars
+# Source extra scripts
+for config in "$HOME"/.shell/*.sh "$HOME"/.shell/*.bash; do
+    source $config
+done
+unset -v config
 
 ############
 # Variables
@@ -42,18 +42,6 @@ export TERM=xterm-256color
 
 # Add data and time to history
 export HISTTIMEFORMAT="%d/%m/%y %T "
-
-############
-
-# Custom build path
-
-# OCF utilities path
-export PATH=/opt/ocf/bin:/opt/ocf/sbin:$PATH
-
-# Miscellaneous
-export PATH=/usr/texbin:~/.node/bin:/opt/X11/bin:$PATH
-
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
 
 # Ignore duplicates and commands that start with whitespace
 export HISTCONTROL=ignoreboth
@@ -70,36 +58,6 @@ export GREP_OPTIONS="--color=auto"
 #[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
 
 ############
-# Aliases
-############
-
-# Alias variations (for OS X and other systems, respectively)
-if [[ $OS == "Darwin" ]]; then
-    alias la="ls -AbGhlp"
-    alias tac="tail -r"
-else
-    alias la="ls -Abhlp --color=auto"
-fi
-
-# Alias for du (displays disk usage)
-alias duck="du -cks ./* | sort -n"
-
-# Alias for history
-alias hist="history 10"
-
-# Alias for sudo (allow sudo of other aliases)
-alias sudo='sudo '
-
-# Alias for editing notes
-alias vnote="vim -c \"cd `echo $NOTE_DIR`\" `echo $NOTE_DIR`/masterlist.txt"
-
-# Aliases for showing and hiding files in finder
-if [[ $OS == "Darwin" ]]; then
-    alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-    alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
-fi
-
-############
 # History
 ############
 
@@ -112,27 +70,8 @@ shopt -s histappend
 # Allow editing of failed substitutions
 shopt -s histreedit
 
-# Temporary file for deduplicating the history file
-tmp_histfile="/tmp/.bash_history.$$" 
-
-# Synchronize each history list with history file
-function sync_history() {
-    # Append the history list to the history file
-    history -a
-
-    # Remove duplicates from the history file, keeping the most recent copies
-
-    # IMPORTANT: OS X/BSD requires installation of coreutils pkg for tac
-    # Available via homebrew/pkg_add respectively
-    if [[ -r "$HISTFILE" ]]; then
-        tac "$HISTFILE" | awk '!uniq[$0]++' | tac > "$tmp_histfile"
-        mv "$tmp_histfile" "$HISTFILE"
-    fi
-
-    # Clear the history list and read the history file
-    history -c
-    history -r
-}
+# Set history file location
+export HISTFILE=~/.shell/.bash_history
 
 ############
 # Prompt
@@ -146,9 +85,6 @@ function sync_history() {
 
 # Red $ or # if non-zero exit status, normal otherwise
 symbol='$([[ $? -ne 0 ]] && printf "%b" "$red_raw" || printf "%b" "$reset_raw")'
-
-# Sync history before every prompt
-export PROMPT_COMMAND='sync_history;'
 
 # Set custom prompt
 export PS1="\[${UCOLOR}\]\u\[$yellow\]@\[${HCOLOR}\]\h\[$blue\] \[$blue\]\W\[$yellow\] \\$\[$reset\] "
