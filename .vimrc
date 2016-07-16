@@ -20,6 +20,7 @@ filetype plugin indent off     " Disable filetype plugins and auto indentation
 let mapleader = " "            " Set leader key
 set modelines=1                " Allow mode line for this file
 set wildmenu
+set cursorline
 " }}}
 " === Plugins === {{{
 
@@ -142,14 +143,14 @@ nmap <enter> o<Esc>
 cnoremap <c-w> <home>\<<end>\>
 nnoremap <F2> :nohlsearch<CR>
 nnoremap <S-u> <C-r>
+nnoremap <leader>s :so %<cr>
+nnoremap Q <nop> " Disable ex mode because i have no idea what to do with it
 
 " Save and quit
-nnoremap <leader>s :so %<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :q!<cr>
 nnoremap <leader>z :wqall<cr>
-nnoremap Q <nop> " Disable ex mode because i have no idea what to do with it
 "}}}
 " === Commands === {{{
 
