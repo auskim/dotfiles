@@ -3,14 +3,15 @@
     email = kim.austin.h@gmail.com
 [core]
     excludesfile = ~/.gitignore_global
-[difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path = 
-[mergetool "sourcetree"]
-    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
+[advice]
+    pushNonFastForward = false
+    statusHints = false
 [color]
     diff = true
+    ui = auto
+[diff]
+    renames = copies
+    mnemonicprefix = true
 [alias]
     a = add
     s = status
@@ -28,3 +29,5 @@
     rv = remote -v
 [push]
 	default = simple
+[merge]
+    stat = true
