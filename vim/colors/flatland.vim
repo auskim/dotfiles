@@ -13,15 +13,15 @@ endif
 
 let g:colors_name = "flatland"
 
-hi Cursor       ctermfg=16   ctermbg=16   cterm=NONE      guifg=#26292c guibg=#646769 gui=NONE
-hi Visual       ctermfg=NONE ctermbg=59   cterm=NONE      guifg=NONE    guibg=#515559 gui=NONE
-hi CursorLine   ctermfg=NONE ctermbg=59   cterm=NONE      guifg=NONE    guibg=#3b3e40 gui=NONE
-hi CursorColumn ctermfg=NONE ctermbg=59   cterm=NONE      guifg=NONE    guibg=#3b3e40 gui=NONE
-hi ColorColumn  ctermfg=NONE ctermbg=59   cterm=NONE      guifg=NONE    guibg=#3b3e40 gui=NONE
+hi Cursor       ctermfg=16   ctermbg=16   cterm=NONE guifg=#26292c guibg=#646769 gui=NONE
+hi Visual       ctermfg=NONE ctermbg=59   cterm=NONE guifg=NONE    guibg=#515559 gui=NONE
+hi CursorLine   ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE    guibg=#3b3e40 gui=NONE
+hi CursorColumn ctermfg=NONE ctermbg=59   cterm=NONE guifg=NONE    guibg=#3b3e40 gui=NONE
+hi ColorColumn  ctermfg=NONE ctermbg=59   cterm=NONE guifg=NONE    guibg=#3b3e40 gui=NONE
 
-hi TabLine      ctermfg=231  ctermbg=67   cterm=none
+hi TabLine      ctermfg=231  ctermbg=16   cterm=none
 hi TabLineFill  ctermfg=231  ctermbg=16  cterm=underline
-hi TabLineSel   ctermfg=231  ctermbg=16   cterm=bold
+hi TabLineSel   ctermfg=231  ctermbg=67   cterm=bold
 hi LineNr       ctermfg=251  ctermbg=16   cterm=NONE      guifg=#8f9192 guibg=#3b3e40 gui=NONE
 hi VertSplit    ctermfg=59   ctermbg=59   cterm=NONE      guifg=#636567 guibg=#636567 gui=NONE
 hi MatchParen   ctermfg=209  ctermbg=NONE cterm=underline guifg=#fa9a4b guibg=NONE    gui=underline
@@ -30,7 +30,7 @@ hi StatusLineNC ctermfg=231  ctermbg=59   cterm=NONE      guifg=#f8f8f8 guibg=#6
 hi Pmenu        ctermfg=74   ctermbg=NONE cterm=NONE      guifg=#72aaca guibg=NONE    gui=NONE
 hi PmenuSel     ctermfg=NONE ctermbg=59   cterm=NONE      guifg=NONE    guibg=#3c3f42 gui=NONE
 hi IncSearch    ctermfg=16   ctermbg=231  cterm=NONE      guifg=#26292c guibg=#f6f6f6 gui=NONE
-hi Search       ctermfg=NONE ctermbg=59   cterm=none      guifg=NONE    guibg=NONE    gui=underline
+hi Search       ctermfg=231   ctermbg=67   cterm=none      guifg=NONE    guibg=NONE    gui=underline
 hi Directory    ctermfg=150  ctermbg=NONE cterm=underline guifg=#b8d977 guibg=NONE    gui=NONE
 hi Folded       ctermfg=102  ctermbg=16   cterm=NONE      guifg=#798188 guibg=#26292c gui=NONE
 

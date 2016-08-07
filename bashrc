@@ -7,9 +7,6 @@
 # Use vim key bindings in bash
 set -o vi
 
-# Determine OS
-OS=`uname -s`
-
 # Define colors
 red="\033[1;31m"
 green="\033[1;32m"
@@ -24,21 +21,16 @@ reset="\033[m"
 # If it exists and is readable, source ~/.bash_local
 [[ -r ~/.bash_local ]] && . ~/.bash_local
 
-# Source extra scripts
-for config in "$HOME"/.shell/*.sh "$HOME"/.shell/*.bash; do
-    source $config
-done
-unset -v config
+# source aliases
+source $HOME/.shell/alias.sh
+
+# fzf auto-completion and key bindings
+[[ ($- == *i*) && (-d "$HOME/.fzf") ]] && source "$HOME/.fzf/shell/completion.bash" 2> /dev/null
+[[ -d "$HOME/.fzf" ]] && source "$HOME/.fzf/shell/key-bindings.bash"
 
 ############
 # Variables
 ############
-
-# Force all locale variables to standard
-export LC_ALL=C
-
-# Set terminal colors
-export TERM=xterm-256color
 
 # Add data and time to history
 export HISTTIMEFORMAT="%d/%m/%y %T "

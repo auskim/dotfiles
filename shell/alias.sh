@@ -12,7 +12,7 @@ alias hist="history | tail"
 alias sudo='sudo '
 
 # Alias for editing notes
-alias vnote="vim -c \"cd $NOTE_DIR\" $NOTE_DIR/masterlist.txt"
+alias vnote="vim -c \"cd $NOTE_DIR\" $NOTE_DIR/masterlist"
 
 # Aliases for showing and hiding files in finder
 if [[ $OS == "Darwin" ]]; then

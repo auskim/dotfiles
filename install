@@ -1,0 +1,11 @@
+echo " --- Symlinking files..."
+ln -sf $PWD/bash_profile $HOME/.bash_profile
+ln -sf $PWD/gitconfig $HOME/.gitconfig
+ln -sf $PWD/gitignore_global $HOME/.gitignore_global
+ln -sf $PWD/bashrc $HOME/.bashrc
+ln -sf $PWD/zshrc $HOME/.zshrc
+mkdir $HOME/.shell
+mkdir $HOME/.vim
+ln -sf $PWD/shell/* $HOME/.shell
+ln -sf $PWD/vim/* $HOME/.vim
+echo " --- Done"

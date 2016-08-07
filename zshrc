@@ -1,10 +1,15 @@
 # TODO: zsh color scheme
+# TODO: split for optimization?
 
 # === Source ===
-for config in "$HOME"/.shell/*.sh "$HOME"/.shell/*.zsh; do
-    source "$config"
-done
-unset config
+source '.shell/antigen.zsh'
+source '.shell/alias.sh'
+
+# fzf Auto-completion
+[[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
+
+# fzf Key bindings
+source "$HOME/.fzf/shell/key-bindings.zsh"
 
 # === Antigen ===
 antigen use oh-my-zsh
