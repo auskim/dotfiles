@@ -20,6 +20,7 @@ if [[ ! "$MANPATH" == *$HOME/.fzf/man* && -d "$HOME/.fzf/man" ]]; then
 fi
 
 # Variables
+# -----
 
 # Force all locale variables to standard
 export LC_ALL=C

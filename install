@@ -2,6 +2,7 @@ echo " --- Symlinking files..."
 ln -sf $PWD/bash_profile $HOME/.bash_profile
 ln -sf $PWD/gitconfig $HOME/.gitconfig
 ln -sf $PWD/gitignore_global $HOME/.gitignore_global
+ln -sf $PWD/profile $HOME/.profile
 ln -sf $PWD/bashrc $HOME/.bashrc
 ln -sf $PWD/zshrc $HOME/.zshrc
 mkdir $HOME/.shell
