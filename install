@@ -5,6 +5,7 @@ ln -sf $PWD/gitignore_global $HOME/.gitignore_global
 ln -sf $PWD/profile $HOME/.profile
 ln -sf $PWD/bashrc $HOME/.bashrc
 ln -sf $PWD/zshrc $HOME/.zshrc
+ln -sf $PWD/vimrc $HOME/.vimrc
 mkdir $HOME/.shell
 mkdir $HOME/.vim
 ln -sf $PWD/shell/* $HOME/.shell
