@@ -28,6 +28,6 @@
     rev = revert
     rv = remote -v
 [push]
-	default = simple
+	default = matching
 [merge]
     stat = true
