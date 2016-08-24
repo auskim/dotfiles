@@ -2,6 +2,7 @@
 # TODO: split for optimization?
 
 # === Source ===
+source .profile
 source '.shell/antigen.zsh'
 source '.shell/alias.sh'
 
