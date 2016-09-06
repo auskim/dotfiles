@@ -1,7 +1,7 @@
 # Path
 # -----
 
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
+export PATH=/usr/local/lib/:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
 
 # OCF utilities path
 export PATH=/opt/ocf/bin:/opt/ocf/sbin:$PATH
