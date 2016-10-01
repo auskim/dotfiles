@@ -1,13 +1,13 @@
 # Path
 # -----
 
-export PATH=/usr/local/lib/:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
+export PATH=/usr/local/lib/:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:$PATH
 
 # OCF utilities path
 export PATH=/opt/ocf/bin:/opt/ocf/sbin:$PATH
 
 # Miscellaneous
-export PATH=~/.fzf/bin:/usr/texbin:~/.node/bin:/opt/X11/bin:$PATH
+export PATH=~/.fzf/bin:/usr/local/texlive/2016basic/bin:~/.node/bin:/opt/X11/bin:$PATH
 
 # fzf path
 if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then

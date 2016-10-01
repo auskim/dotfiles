@@ -2,9 +2,9 @@
 # TODO: split for optimization?
 
 # === Source ===
-source .profile
-source '.shell/antigen.zsh'
-source '.shell/alias.sh'
+source $HOME/.profile
+source $HOME/.shell/antigen.zsh
+source $HOME/.shell/alias.sh
 
 # fzf Auto-completion
 [[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
