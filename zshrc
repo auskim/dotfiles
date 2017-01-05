@@ -6,11 +6,11 @@ source $HOME/.profile
 source $HOME/.shell/antigen.zsh
 source $HOME/.shell/alias.sh
 
-# fzf Auto-completion
-[[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
-
 # fzf Key bindings
 source "$HOME/.fzf/shell/key-bindings.zsh"
+
+# fzf Auto-completion
+source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
 
 # === Antigen ===
 antigen use oh-my-zsh

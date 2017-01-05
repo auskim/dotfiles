@@ -1,7 +1,7 @@
 # Path
 # -----
 
-export PATH=/usr/local/lib/:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:$PATH
+export PATH=/usr/local/lib:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:$PATH
 
 # OCF utilities path
 export PATH=/opt/ocf/bin:/opt/ocf/sbin:$PATH
@@ -32,7 +32,7 @@ export TERM=xterm-256color
 export OS=`uname -s`
 
 # Personalized directories
-export NOTE_DIR="~/Dropbox/Notational\ Data"
+export NOTE_DIR="~/Documents/Notational\ Data"
 export CODE_DIR="~/Code"
 
 # Modify fzf to use silver searcher
