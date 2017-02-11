@@ -9,16 +9,6 @@ export PATH=/opt/ocf/bin:/opt/ocf/sbin:$PATH
 # Miscellaneous
 export PATH=~/.fzf/bin:/usr/local/texlive/2016basic/bin:~/.node/bin:/opt/X11/bin:$PATH
 
-# fzf path
-if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
-  export PATH="$PATH:$HOME/.fzf/bin"
-fi
-
-# fzf man path
-if [[ ! "$MANPATH" == *$HOME/.fzf/man* && -d "$HOME/.fzf/man" ]]; then
-  export MANPATH="$MANPATH:$HOME/.fzf/man"
-fi
-
 # Variables
 # -----
 
@@ -37,3 +27,5 @@ export CODE_DIR="~/Code"
 
 # Modify fzf to use silver searcher
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_OPTS="--reverse --inline-info"
+export FZF_COMPLETION_TRIGGER='\\'

@@ -27,7 +27,7 @@ call plug#begin() " Load vim-plug
 
 Plug 'gcmt/taboo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'junegunn/fzf', {'dir' : '~/.fzf', 'do': './install --bin'}
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'luochen1990/rainbow'
@@ -66,6 +66,7 @@ nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>m :Marks<cr>
 nnoremap <leader>c :Commits<cr>
 nnoremap <leader>/ :Ag! 
+let g:fzf_layout = { 'down': '~30%' }
 
 " taboo
 let g:taboo_tab_format=" %N %f%m "

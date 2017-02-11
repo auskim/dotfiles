@@ -24,9 +24,7 @@ reset="\033[m"
 # source aliases
 source $HOME/.shell/alias.sh
 
-# fzf auto-completion and key bindings
-[[ ($- == *i*) && (-d "$HOME/.fzf") ]] && source "$HOME/.fzf/shell/completion.bash" 2> /dev/null
-[[ -d "$HOME/.fzf" ]] && source "$HOME/.fzf/shell/key-bindings.bash"
+[ -f ~/.shell/fzf.bash ] && source ~/.shell/fzf.bash
 
 ############
 # Variables
