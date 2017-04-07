@@ -9,6 +9,8 @@ export PATH=/opt/ocf/bin:/opt/ocf/sbin:$PATH
 # Miscellaneous
 export PATH=~/.fzf/bin:/usr/local/texlive/2016basic/bin:~/.node/bin:/opt/X11/bin:$PATH
 
+export PATH=/usr/local/opt/ruby@2.3/bin:/usr/local/mysql/bin:$PATH
+
 # Variables
 # -----
 

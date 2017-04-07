@@ -6,6 +6,8 @@ source $HOME/.profile
 source $HOME/.shell/antigen.zsh
 source $HOME/.shell/alias.sh
 
+export PATH=/usr/local/opt/ruby@2.3/bin:/usr/local/mysql/bin:$PATH
+
 # === Antigen ===
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting

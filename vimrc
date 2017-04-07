@@ -7,6 +7,8 @@
 
 " === General === {{{
 
+set enc=utf-8                  " Show UTF-8 encoded characters
+set fileencoding=utf-8
 set nocompatible               " Avoid compatibility features
 set t_Co=256                   " 256 colors
 syntax on                      " Enable syntax highlighting
@@ -59,7 +61,7 @@ let g:airline_right_sep='<<'
 " fzf
 nnoremap <leader>ff :Files %:p:h<cr>
 nnoremap <leader>fg :GFiles<cr>
-nnoremap <leader>fc :Files $CODE_DIR<cr>
+nnoremap <leader>fc :Files $HOME<cr>
 nnoremap <leader>h :Helptags<cr>
 nnoremap <leader><Tab> :History:<cr>
 nnoremap <leader>b :Buffers<cr>

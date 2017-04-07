@@ -2,6 +2,8 @@
 alias la="ls -AbGhlp"
 alias tac="tail -r"
 
+alias code="cd $HOME/Code"
+
 # Alias for du (displays disk usage)
 alias duck="du -cks ./* | sort -n"
 
