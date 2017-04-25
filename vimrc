@@ -7,9 +7,9 @@
 
 " === General === {{{
 
+set nocompatible               " Avoid compatibility features
 set enc=utf-8                  " Show UTF-8 encoded characters
 set fileencoding=utf-8
-set nocompatible               " Avoid compatibility features
 set t_Co=256                   " 256 colors
 syntax on                      " Enable syntax highlighting
 set background=dark            " Dark background
@@ -27,17 +27,16 @@ set hidden
 
 call plug#begin() " Load vim-plug
 
-Plug 'gcmt/taboo.vim'
-Plug 'junegunn/limelight.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'luochen1990/rainbow'
 Plug 'majutsushi/tagbar'
 Plug 'sjl/gundo.vim'
-Plug 'tpope/vim-fugitive'
+Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'gcmt/taboo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'luochen1990/rainbow'
 
 call plug#end()
 
@@ -49,19 +48,19 @@ nnoremap <leader>pc :PlugClean<cr>
 
 " vim-airline
 let g:airline_theme='powerlineish'
-let g:airline_section_b = airline#section#create(['%t', ' ', '%m', '%y', ' ', '%r'])
+let g:airline_section_b = airline#section#create(['%t', ' ', '%m', '%y', ' ', '%r', 'readonly'])
 let g:airline_section_c = airline#section#create(['tagbar'])
 let g:airline_section_gutter = airline#section#create(['%='])
 let g:airline_section_x = airline#section#create([])
 let g:airline_section_y = airline#section#create(['%03b', ' ', '0x%02B'])
-let g:airline_section_z = airline#section#create(['%l', '/', '%L', ' (', '%p', '%%) : ', '%c'])
-let g:airline_left_sep='>>'
-let g:airline_right_sep='<<'
+let g:airline_section_z = airline#section#create(['%c', ' : ', '%l', '/', '%L', ' (', '%p', '%%)'])
+let g:airline_left_sep = '»'
+let g:airline_right_sep = '«'
 
 " fzf
 nnoremap <leader>ff :Files %:p:h<cr>
 nnoremap <leader>fg :GFiles<cr>
-nnoremap <leader>fc :Files $HOME<cr>
+nnoremap <leader>fc :Files $CODE_DIR<cr>
 nnoremap <leader>h :Helptags<cr>
 nnoremap <leader><Tab> :History:<cr>
 nnoremap <leader>b :Buffers<cr>

@@ -2,7 +2,7 @@
 alias la="ls -AbGhlp"
 alias tac="tail -r"
 
-alias code="cd $HOME/Code"
+alias code="cd $CODE_DIR"
 
 # Alias for du (displays disk usage)
 alias duck="du -cks ./* | sort -n"
