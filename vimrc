@@ -58,9 +58,9 @@ let g:airline_left_sep = '»'
 let g:airline_right_sep = '«'
 
 " fzf
-nnoremap <leader>ff :Files %:p:h<cr>
-nnoremap <leader>fg :GFiles<cr>
-nnoremap <leader>fc :Files $CODE_DIR<cr>
+nnoremap <leader>d :Files %:p:h<cr>
+nnoremap <leader>f :Files $CODE_DIR<cr>
+nnoremap <leader>g :GFiles<cr>
 nnoremap <leader>h :Helptags<cr>
 nnoremap <leader><Tab> :History:<cr>
 nnoremap <leader>b :Buffers<cr>
@@ -147,9 +147,11 @@ nnoremap <S-u> <C-r>
 nnoremap <leader>s :so ~/.vimrc<cr>
 " Disable ex mode because i have no idea what to do with it
 nnoremap Q <nop>
+nnoremap <leader>v :Vex<cr>
 
 " Save and quit
 nnoremap <leader>w :w<cr>
+nnoremap <leader>W :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :q!<cr>
 nnoremap <leader>z :wqall<cr>
@@ -163,7 +165,7 @@ set warn                         " Warn if executing shell command without save
 set wildmode=list:longest,full   " Complete to longest common string and list possible matches, then iterate
 set suffixes+=.class,.pdf,.pyc   " Give compiled files, etc, lower priority in wildcard matching
                                  " }}}
-                                 
+
 " === Display === {{{
 
 set number relativenumber    " Show line numbers (absolute for current line, relative for others)
@@ -174,8 +176,14 @@ set textwidth=0 wrapmargin=0 " Do not auto newline beyond a certain width
 set lazyredraw               " Redraw screen only when necessary
 set laststatus=2             " Status bar always visible
 set showtabline=2            " Always show tabline
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
                              " }}}
-                             
+
 " === Spacing === {{{
 
 set expandtab                " Use spaces instead of tabs
@@ -192,6 +200,7 @@ augroup auto
     " Override tabbing settings for css, html, js with 2 spaces per tab
     autocmd FileType css,html,js setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
+
 "}}}
 
 " === Search === {{{

@@ -1,5 +1,5 @@
 # Alias variations (for OS X and other systems, respectively)
-alias la="ls -AbGhlp"
+alias l="ls -AbFGhl"
 alias tac="tail -r"
 
 alias code="cd $CODE_DIR"
@@ -11,7 +11,7 @@ alias duck="du -cks ./* | sort -n"
 alias hist="history | tail"
 
 # Alias for sudo (allow sudo of other aliases)
-alias sudo='sudo '
+alias _='sudo '
 
 # Alias for editing notes
 alias vnote="vim -c \"cd $NOTE_DIR\" $NOTE_DIR/masterlist"
