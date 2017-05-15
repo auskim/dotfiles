@@ -87,10 +87,6 @@ nnoremap <leader>t :TagbarToggle<cr>
 
 " gundo
 nnoremap <leader>u :GundoToggle<cr>
-
-" rainbow
-let g:rainbow_active = 1
-nnoremap <leader>r :RainbowToggleOn<cr>
 " }}}
 
 " === Keybindings === {{{
@@ -123,18 +119,8 @@ nnoremap <leader><Space> za
 " Marks
 nnoremap : `
 
-" Tabs (switch tabs easily by using leader)
-nnoremap <leader>1 1gt
-nnoremap <leader>2 2gt
-nnoremap <leader>3 3gt
-nnoremap <leader>4 4gt
-nnoremap <leader>5 5gt
-nnoremap <leader>6 6gt
-nnoremap <leader>7 7gt
-nnoremap <leader>8 8gt
-nnoremap <leader>9 9gt
+" Tabs
 nnoremap <leader>n :tabnew<cr>
-nnoremap <leader>N :tabnew 
 nnoremap <leader>e :e 
 
 " Misc
@@ -151,7 +137,7 @@ nnoremap <leader>v :Vex<cr>
 
 " Save and quit
 nnoremap <leader>w :w<cr>
-nnoremap <leader>W :w<cr>
+nnoremap <leader>W :wq<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :q!<cr>
 nnoremap <leader>z :wqall<cr>
