@@ -1,11 +1,8 @@
 " Vimrc for auskim. Use freely.
 
-" === TODO === {{{
-" colorscheme for folds
-" find more useless keys to remap
-"}}}
+" === TODO ===
 
-" === General === {{{
+" === General ===
 
 set nocompatible               " Avoid compatibility features
 set enc=utf-8                  " Show UTF-8 encoded characters
@@ -21,9 +18,8 @@ set modelines=1                " Allow mode line for this file
 set wildmenu                   " Display wildmenu options
 set cursorline                 " Always show cursorline
 set hidden
-                               " }}}
 
-" === Plugins === {{{
+" === Plugins ===
 
 call plug#begin() " Load vim-plug
 
@@ -87,9 +83,8 @@ nnoremap <leader>t :TagbarToggle<cr>
 
 " gundo
 nnoremap <leader>u :GundoToggle<cr>
-" }}}
 
-" === Keybindings === {{{
+" === Keybindings === 
 
 " Movement
 nnoremap J }
@@ -141,18 +136,16 @@ nnoremap <leader>W :wq<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :q!<cr>
 nnoremap <leader>z :wqall<cr>
-"}}}
 
-" === Commands === {{{
+" === Commands === 
 
 set history=1000 undolevels=1000 " Save more history and undo levels
 set showcmd report=0             " Show current command info
 set warn                         " Warn if executing shell command without save
 set wildmode=list:longest,full   " Complete to longest common string and list possible matches, then iterate
 set suffixes+=.class,.pdf,.pyc   " Give compiled files, etc, lower priority in wildcard matching
-                                 " }}}
 
-" === Display === {{{
+" === Display === 
 
 set number relativenumber    " Show line numbers (absolute for current line, relative for others)
 set scrolloff=2              " Show 2 lines of context when scrolling and during search
@@ -168,9 +161,8 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-                             " }}}
 
-" === Spacing === {{{
+" === Spacing === 
 
 set expandtab                " Use spaces instead of tabs
 set tabstop=4                " Display tabs as 4 spaces (necessary for retab)
@@ -178,29 +170,22 @@ set softtabstop=4            " Tab in insert mode inserts 4 spaces
 set shiftwidth=4 shiftround  " Insert 4 spaces per tab when shifting, rounding to the nearest tab
 set autoindent               " Copy indentation of current line for new lines
 set pastetoggle=<F3>         " Toggles auto formatting of pasted material
-                             " }}}
 
-" === Autocommands === {{{
+" === Autocommands === 
 
 augroup auto
     " Override tabbing settings for css, html, js with 2 spaces per tab
     autocmd FileType css,html,js setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
-"}}}
-
-" === Search === {{{
+" === Search === 
 
 set hlsearch             " Highlight search matches
 set incsearch            " Search incrementally, i.e. as queries are typed
 set ignorecase smartcase " Ignore case for search, but override for capitalized queries
-                         " }}}
 
-" === Backups === {{{
+" === Backups === 
 
 set backup writebackup        " Enable backups
 set dir=~/.vim,/var/tmp       " Set swapfile directory
 set backupdir=~/.vim,/var/tmp " Set backup directory
-                              " }}}
-
-" vim:foldmethod=marker:foldlevel=0
