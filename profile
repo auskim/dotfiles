@@ -3,10 +3,6 @@
 
 export PATH=/usr/local/lib:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:$PATH
 
-# OCF utilities path
-export PATH=/opt/ocf/bin:/opt/ocf/sbin:$PATH
-
-# Miscellaneous
 export PATH=~/.fzf/bin:/usr/local/texlive/2016basic/bin:~/.node/bin:/opt/X11/bin:$PATH
 
 export PATH=/usr/local/opt/ruby@2.3/bin:/usr/local/mysql/bin:$PATH
@@ -31,3 +27,6 @@ export CODE_DIR="~/Code"
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 export FZF_COMPLETION_TRIGGER='\\'
+
+# macos core foundation
+export __CF_USER_TEXT_ENCODING="0x08000100:0x0"
