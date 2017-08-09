@@ -11,7 +11,9 @@ export PATH=/usr/local/opt/ruby@2.3/bin:/usr/local/mysql/bin:$PATH
 # -----
 
 # Force all locale variables to standard
-export LC_ALL=C
+export LANG=en_US.UTF-8
+export LC_COLLATE=C
+unset LC_ALL
 
 # Set terminal colors
 export TERM=xterm-256color

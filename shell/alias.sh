@@ -5,7 +5,10 @@ alias tac="tail -r"
 alias code="cd $CODE_DIR"
 
 # Alias for du (displays disk usage)
-alias duck="du -cks ./* | sort -n"
+# alias duck="du -cks $1 | sort -n"
+duck () {
+    du -cks $1 | sort -n;
+}
 
 # Alias for history
 alias hist="history | tail"

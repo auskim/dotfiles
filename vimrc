@@ -44,17 +44,16 @@ nnoremap <leader>pc :PlugClean<cr>
 
 " vim-airline
 let g:airline_theme='powerlineish'
+let g:airline_powerline_fonts = 1
 let g:airline_section_b = airline#section#create(['%t', ' ', '%m', '%y', ' ', '%r', 'readonly'])
 let g:airline_section_c = airline#section#create(['tagbar'])
 let g:airline_section_gutter = airline#section#create(['%='])
 let g:airline_section_x = airline#section#create([])
 let g:airline_section_y = airline#section#create(['%03b', ' ', '0x%02B'])
 let g:airline_section_z = airline#section#create(['%c', ' : ', '%l', '/', '%L', ' (', '%p', '%%)'])
-let g:airline_left_sep = '»'
-let g:airline_right_sep = '«'
-
+ 
 " fzf
-nnoremap <leader>d :Files %:p:h<cr>
+nnoremap <leader>d :Files .<cr>
 nnoremap <leader>f :Files $CODE_DIR<cr>
 nnoremap <leader>g :GFiles<cr>
 nnoremap <leader>h :Helptags<cr>
@@ -66,7 +65,7 @@ nnoremap <leader>/ :Ag!
 let g:fzf_layout = { 'down': '~30%' }
 
 " taboo
-let g:taboo_tab_format=" %N %f%m "
+let g:taboo_tab_format=" %f%m "
 let g:taboo_modified_tab_flag="[+]"
 
 " vim-easy-align
@@ -84,15 +83,18 @@ nnoremap <leader>t :TagbarToggle<cr>
 " gundo
 nnoremap <leader>u :GundoToggle<cr>
 
+" rainbow
+let g:rainbow_active = 1
+
 " === Keybindings === 
 
 " Movement
 nnoremap J }
 nnoremap K {
-nnoremap { <PageDown>zz
-nnoremap } <PageUp>zz
-nnoremap L gt
-nnoremap H gT
+nnoremap : gT
+nnoremap " gt
+nnoremap L <PageUp>zz
+nnoremap H <PageDown>zz
 
 " Panes
 nmap <Up> <C-w>k
@@ -112,7 +114,7 @@ nnoremap ' <C-i>
 nnoremap <leader><Space> za
 
 " Marks
-nnoremap : `
+nnoremap M `
 
 " Tabs
 nnoremap <leader>n :tabnew<cr>
@@ -126,9 +128,10 @@ cnoremap <c-w> <home>\<<end>\>
 nnoremap <F2> :nohlsearch<CR>
 nnoremap <S-u> <C-r>
 nnoremap <leader>s :so ~/.vimrc<cr>
-" Disable ex mode because i have no idea what to do with it
-nnoremap Q <nop>
 nnoremap <leader>v :Vex<cr>
+
+" Disable ex mode because i have no idea what to do with it
+nnoremap Q @
 
 " Save and quit
 nnoremap <leader>w :w<cr>
