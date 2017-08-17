@@ -18,6 +18,7 @@ set modelines=1                " Allow mode line for this file
 set wildmenu                   " Display wildmenu options
 set cursorline                 " Always show cursorline
 set hidden
+set clipboard=unnamed
 
 " === Plugins ===
 
@@ -91,6 +92,7 @@ let g:rainbow_active = 1
 " Movement
 nnoremap J }
 nnoremap K {
+nnoremap , "
 nnoremap : gT
 nnoremap " gt
 nnoremap L <PageUp>zz
@@ -129,8 +131,6 @@ nnoremap <F2> :nohlsearch<CR>
 nnoremap <S-u> <C-r>
 nnoremap <leader>s :so ~/.vimrc<cr>
 nnoremap <leader>v :Vex<cr>
-
-" Disable ex mode because i have no idea what to do with it
 nnoremap Q @
 
 " Save and quit
