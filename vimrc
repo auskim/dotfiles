@@ -177,7 +177,7 @@ set pastetoggle=<F3>         " Toggles auto formatting of pasted material
 
 augroup auto
     " Override tabbing settings for css, html, js with 2 spaces per tab
-    autocmd FileType css,html,js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType css,html,js,yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 " === Search === 

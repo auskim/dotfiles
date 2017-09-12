@@ -1,14 +1,9 @@
 # TODO: zsh color scheme
 # TODO: split for optimization?
 
-# === Source ===
-source $HOME/.profile
-source $HOME/.shell/antigen.zsh
-source $HOME/.shell/alias.sh
-
-export PATH=/usr/local/opt/ruby@2.3/bin:/usr/local/mysql/bin:$PATH
-
 # === Antigen ===
+source $HOME/.shell/antigen.zsh
+
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen-apply
@@ -30,7 +25,6 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$reset_color%}"
 # === Options ===
 export LSCOLORS=exGxcxdxbxegedabagacad
 export EDITOR=vim
-export LANG=en_US.UTF-8
 set -o vi
 
 setopt CORRECT
@@ -41,6 +35,10 @@ setopt APPENDHISTORY
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.shell/.zsh_history
+
+# === Source ===
+source $HOME/.profile
+source $HOME/.shell/alias.sh
 
 # fzf Key bindings
 [ -f ~/.shell/fzf.zsh ] && source ~/.shell/fzf.zsh
