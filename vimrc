@@ -62,7 +62,7 @@ nnoremap <leader><Tab> :History:<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>m :Marks<cr>
 nnoremap <leader>c :Commits<cr>
-nnoremap <leader>/ :Ag! 
+nnoremap <leader>/ :Rg<cr>
 let g:fzf_layout = { 'down': '~30%' }
 
 " taboo
@@ -179,6 +179,14 @@ augroup auto
     " Override tabbing settings for css, html, js with 2 spaces per tab
     autocmd FileType css,html,js,yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
 
 " === Search === 
 
