@@ -1,6 +1,7 @@
 # Alias variations (for OS X and other systems, respectively)
 alias l="ls -AbFGhl"
 alias tac="tail -r"
+alias rg="rg --colors 'match:fg:blue' --colors 'match:style:intense' --colors 'line:fg:yellow' --colors 'path:fg:green' --colors 'match:style:bold' "
 
 alias code="cd $CODE_DIR"
 
