@@ -5,8 +5,8 @@
 " === General ===
 
 set nocompatible               " Avoid compatibility features
-set enc=utf-8                  " Show UTF-8 encoded characters
-set fileencoding=utf-8
+set enc=utf-8                  " Sets vim character set
+set fileencoding=utf-8         " Sets file encoding
 set t_Co=256                   " 256 colors
 syntax on                      " Enable syntax highlighting
 set background=dark            " Dark background
@@ -17,8 +17,8 @@ let mapleader = " "            " Set leader key
 set modelines=1                " Allow mode line for this file
 set wildmenu                   " Display wildmenu options
 set cursorline                 " Always show cursorline
-set hidden
-set clipboard=unnamed
+set hidden                     " Hide windowless buffers
+set clipboard=unnamed          " Paste to system clipboard register
 
 " === Plugins ===
 
