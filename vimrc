@@ -1,4 +1,4 @@
-" Vimrc for auskim. Use freely.
+" Vimrc 
 
 " === TODO ===
 
@@ -19,21 +19,22 @@ set wildmenu                   " Display wildmenu options
 set cursorline                 " Always show cursorline
 set hidden                     " Hide windowless buffers
 set clipboard=unnamed          " Paste to system clipboard register
+set colorcolumn=+1
 
 " === Plugins ===
 
 call plug#begin() " Load vim-plug
 
-Plug '/usr/local/opt/fzf'
+Plug '/usr/local/opt/fzf'             " fzf(.vim) fuzzy search
 Plug 'junegunn/fzf.vim'
-Plug 'majutsushi/tagbar'
-Plug 'sjl/gundo.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'gcmt/taboo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'luochen1990/rainbow'
+Plug 'majutsushi/tagbar'              " displays tags within files
+Plug 'sjl/gundo.vim'                  " displays revision tree for undo/redo
+Plug 'junegunn/vim-easy-align'        " utility for aligning text
+Plug 'vim-airline/vim-airline'        " custom statusline
+Plug 'vim-airline/vim-airline-themes' " airline color schemes
+Plug 'gcmt/taboo.vim'                 " custom vim tab overrides
+Plug 'junegunn/limelight.vim'         " enable focus on current block of text
+Plug 'luochen1990/rainbow'            " matching recursive paren matching
 
 call plug#end()
 
@@ -135,9 +136,8 @@ nnoremap Q @
 
 " Save and quit
 nnoremap <leader>w :w<cr>
-nnoremap <leader>W :wq<cr>
 nnoremap <leader>q :q<cr>
-nnoremap <leader>Q :q!<cr>
+nnoremap <leader>Q :qa<cr>
 
 " === Commands === 
 
