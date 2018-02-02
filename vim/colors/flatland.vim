@@ -23,7 +23,7 @@ hi TabLine      ctermfg=231  ctermbg=16   cterm=none
 hi TabLineFill  ctermfg=231  ctermbg=16   cterm=underline
 hi TabLineSel   ctermfg=231  ctermbg=67   cterm=bold
 hi LineNr       ctermfg=251  ctermbg=16   cterm=NONE      guifg=#8f9192 guibg=#3b3e40 gui=NONE
-hi CursorLineNr ctermfg=231  ctermbg=67   cterm=bold      guifg=#8f9192 guibg=#3b3e40 gui=NONE
+hi CursorLineNr ctermfg=231  ctermbg=none   cterm=bold      guifg=#8f9192 guibg=#3b3e40 gui=NONE
 hi StatusLine   ctermfg=231  ctermbg=59   cterm=bold      guifg=#f8f8f8 guibg=#636567 gui=bold
 hi StatusLineNC ctermfg=231  ctermbg=59   cterm=NONE      guifg=#f8f8f8 guibg=#636567 gui=NONE
 hi Pmenu        ctermfg=192  ctermbg=NONE cterm=NONE      guifg=#72aaca guibg=NONE    gui=NONE

@@ -19,7 +19,6 @@ set wildmenu                   " Display wildmenu options
 set cursorline                 " Always show cursorline
 set hidden                     " Hide windowless buffers
 set clipboard=unnamed          " Paste to system clipboard register
-set colorcolumn=+1
 
 " === Plugins ===
 
@@ -128,7 +127,7 @@ nnoremap <tab> :
 inoremap jk <Esc>
 nmap <enter> o<Esc>
 cnoremap <c-w> <home>\<<end>\>
-nnoremap <F2> :nohlsearch<CR>
+nnoremap \ :nohlsearch<CR>
 nnoremap <S-u> <C-r>
 nnoremap <leader>s :so ~/.vimrc<cr>
 nnoremap <leader>v :Vex<cr>
@@ -137,7 +136,6 @@ nnoremap Q @
 " Save and quit
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
-nnoremap <leader>Q :qa<cr>
 
 " === Commands === 
 
