@@ -77,4 +77,4 @@ export HISTFILE=~/.shell/.bash_history
 symbol='$([[ $? -ne 0 ]] && printf "%b" "$red_raw" || printf "%b" "$reset_raw")'
 
 # Set custom prompt
-export PS1="\[${UCOLOR}\]\u\[$yellow\]@\[${HCOLOR}\]\h\[$blue\] \[$blue\]\W\[$yellow\] \\$\[$reset\] "
+export PS1="\[${UCOLOR}\]\u\[$yellow\]@\[${HCOLOR}\]\h\[$blue\] \[$blue\]\W\[$yellow\]\n\$\[$reset\] "
