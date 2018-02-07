@@ -26,9 +26,9 @@ export NOTE_DIR="~/Documents/Notational\ Data"
 export CODE_DIR="~/Code"
 
 # Modify fzf to use silver searcher
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='rg --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
-export FZF_COMPLETION_TRIGGER='\\'
+export FZF_COMPLETION_TRIGGER='\'
 
 # macos core foundation
 export __CF_USER_TEXT_ENCODING="0x08000100:0x0"

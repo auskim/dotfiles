@@ -32,7 +32,6 @@ Plug 'junegunn/vim-easy-align'        " utility for aligning text
 Plug 'vim-airline/vim-airline'        " custom statusline
 Plug 'vim-airline/vim-airline-themes' " airline color schemes
 Plug 'gcmt/taboo.vim'                 " custom vim tab overrides
-Plug 'junegunn/limelight.vim'         " enable focus on current block of text
 Plug 'luochen1990/rainbow'            " matching recursive paren matching
 
 call plug#end()
@@ -73,11 +72,6 @@ let g:taboo_modified_tab_flag="[+]"
 xmap <leader>a <Plug>(EasyAlign)
 nmap <leader>a <Plug>(EasyAlign)
 
-" limelight.vim
-let g:limelight_conceal_ctermfg = 240
-nnoremap <leader>l :Limelight<cr>
-nnoremap <leader>L :Limelight!<cr>
-
 " tagbar
 nnoremap <leader>t :TagbarToggle<cr>
 
@@ -115,12 +109,8 @@ nnoremap ' <C-i>
 " Folds
 nnoremap <leader><Space> za
 
-" Marks
-nnoremap M `
-
 " Tabs
 nnoremap <leader>n :tabnew<cr>
-nnoremap <leader>e :e 
 
 " Misc
 nnoremap <tab> :
@@ -130,8 +120,11 @@ cnoremap <c-w> <home>\<<end>\>
 nnoremap \ :nohlsearch<CR>
 nnoremap <S-u> <C-r>
 nnoremap <leader>s :so ~/.vimrc<cr>
-nnoremap <leader>v :Vex<cr>
+nnoremap ` :Texplore<cr>
 nnoremap Q @
+
+" Marks
+nnoremap M `
 
 " Save and quit
 nnoremap <leader>w :w<cr>
