@@ -3,12 +3,17 @@
     email = austink@naehas.com
 [core]
     excludesfile = ~/.gitignore_global
+    commentChar = |
 [advice]
     pushNonFastForward = false
     statusHints = false
 [color]
     diff = true
     ui = auto
+[status]
+    short = true
+    branch = true
+    displayCommentPrefix = true
 [diff]
     renames = copies
     mnemonicprefix = true
@@ -28,7 +33,9 @@
     rev = revert
     rv = remote -v
 [push]
-	default = matching
+	default = simple
+[rebase]
+    stat = true
 [merge]
     stat = true
 [filter "lfs"]
