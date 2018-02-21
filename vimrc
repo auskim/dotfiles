@@ -113,14 +113,14 @@ nnoremap <leader><Space> za
 nnoremap <leader>n :tabnew<cr>
 
 " Misc
-nnoremap <tab> :
+nnoremap , :
 inoremap jk <Esc>
 nmap <enter> o<Esc>
 cnoremap <c-w> <home>\<<end>\>
 nnoremap \ :nohlsearch<CR>
 nnoremap <S-u> <C-r>
 nnoremap <leader>s :so ~/.vimrc<cr>
-" nnoremap ` :Explore<cr> " make repeatedly useable somehow
+" nnoremap <Tab> :Explore<cr> " make repeatedly useable somehow
 nnoremap Q @
 
 " Marks
