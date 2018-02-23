@@ -113,6 +113,7 @@ nnoremap <leader><Space> za
 nnoremap <leader>n :tabnew<cr>
 
 " Misc
+nnoremap <Tab> K
 nnoremap , :
 inoremap jk <Esc>
 nmap <enter> o<Esc>

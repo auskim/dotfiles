@@ -1,0 +1,44 @@
+[core]
+    excludesfile = ~/.gitignore_global
+    commentChar = |
+[advice]
+    pushNonFastForward = false
+    statusHints = false
+[color]
+    diff = true
+    ui = auto
+[status]
+    short = true
+    branch = true
+    displayCommentPrefix = true
+[diff]
+    renames = copies
+    mnemonicprefix = true
+[alias]
+    a = add
+    s = status
+    br = branch
+    c = commit
+    co = checkout
+    cp = cherry-pick
+    d = diff
+    ds = diff --stat
+    h = help
+    f = fetch
+    m = merge
+    rb = rebase
+    rs = reset
+    l = log
+    rv = revert
+    r = remote -v
+[push]
+	default = simple
+[rebase]
+    stat = true
+[merge]
+    stat = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
