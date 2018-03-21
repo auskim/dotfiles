@@ -9,6 +9,10 @@ duck () {
     du -cks $1 | sort -n;
 }
 
+# Alias for vim
+# alias v='nvim '
+alias v='f -e nvim'
+
 # Alias for history
 alias hist="history | tail"
 
