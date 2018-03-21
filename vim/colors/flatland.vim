@@ -61,7 +61,7 @@ hi DiffText     ctermfg=231  ctermbg=17   cterm=bold         guifg=#f8f8f8 guibg
 hi ErrorMsg     ctermfg=231  ctermbg=167  cterm=NONE         guifg=#f8f8f8 guibg=#aa2915 gui=NONE
 hi WarningMsg   ctermfg=231  ctermbg=167  cterm=NONE         guifg=#f8f8f8 guibg=#aa2915 gui=NONE
 hi NonText      ctermfg=102  ctermbg=NONE   cterm=NONE         guifg=#7a8288 guibg=NONE gui=NONE
-hi EndOfBuffer  ctermfg=16   ctermbg=NONE   cterm=NONE
+hi EndOfBuffer  ctermfg=NONE   ctermbg=NONE   cterm=NONE
 hi PreProc      ctermfg=74   ctermbg=NONE cterm=NONE         guifg=#fa9a4b guibg=NONE    gui=NONE
 hi Special      ctermfg=231  ctermbg=NONE cterm=NONE         guifg=#f8f8f8 guibg=NONE    gui=NONE
 hi SpecialKey   ctermfg=102  ctermbg=59   cterm=NONE         guifg=#7a8288 guibg=#3b3e40 gui=NONE
