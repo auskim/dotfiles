@@ -16,7 +16,7 @@ filetype plugin indent off     " Disable filetype plugins and auto indentation
 let mapleader = " "            " Set leader key
 set modelines=1                " Allow mode line for this file
 set wildmenu                   " Display wildmenu options
-set cursorline                 " Always show cursorline
+"set cursorline                 " Always show cursorline
 set hidden                     " Hide windowless buffers
 set clipboard=unnamed          " Paste to system clipboard register
 
@@ -191,3 +191,7 @@ set ignorecase smartcase " Ignore case for search, but override for capitalized 
 set backup writebackup        " Enable backups
 set dir=~/.vim,/var/tmp       " Set swapfile directory
 set backupdir=~/.vim,/var/tmp " Set backup directory
+
+" === Miscellaneous ===
+
+call rainbow#load()

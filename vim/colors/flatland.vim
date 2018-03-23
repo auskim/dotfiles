@@ -18,22 +18,22 @@ hi Cursor       ctermfg=16   ctermbg=16   cterm=NONE      guifg=#26292c guibg=#6
 hi Visual       ctermfg=NONE ctermbg=59   cterm=NONE      guifg=NONE    guibg=#515559 gui=NONE
 hi CursorLine   ctermfg=NONE ctermbg=none cterm=underline guifg=NONE    guibg=#3b3e40 gui=NONE
 hi ColorColumn  ctermfg=NONE ctermbg=59   cterm=NONE      guifg=NONE    guibg=#3b3e40 gui=NONE
-hi MatchParen   ctermfg=74   ctermbg=NONE cterm=underline guifg=#fa9a4b guibg=NONE    gui=underline
-hi TabLine      ctermfg=231  ctermbg=16   cterm=none
-hi TabLineFill  ctermfg=231  ctermbg=16   cterm=underline
+hi MatchParen   ctermfg=none   ctermbg=none  cterm=bold,undercurl      guifg=#fa9a4b guibg=NONE    gui=underline
+hi TabLine      ctermfg=231  ctermbg=none   cterm=none
+hi TabLineFill  ctermfg=231  ctermbg=none   cterm=underline
 hi TabLineSel   ctermfg=231  ctermbg=67   cterm=bold
-hi LineNr       ctermfg=251  ctermbg=16   cterm=NONE      guifg=#8f9192 guibg=#3b3e40 gui=NONE
-hi CursorLineNr ctermfg=231  ctermbg=none   cterm=bold      guifg=#8f9192 guibg=#3b3e40 gui=NONE
+hi LineNr       ctermfg=251  ctermbg=none   cterm=NONE      guifg=#8f9192 guibg=#3b3e40 gui=NONE
+hi CursorLineNr ctermfg=231  ctermbg=none cterm=bold      guifg=#8f9192 guibg=#3b3e40 gui=NONE
 hi StatusLine   ctermfg=231  ctermbg=59   cterm=bold      guifg=#f8f8f8 guibg=#636567 gui=bold
 hi StatusLineNC ctermfg=231  ctermbg=59   cterm=NONE      guifg=#f8f8f8 guibg=#636567 gui=NONE
 hi Pmenu        ctermfg=192  ctermbg=NONE cterm=NONE      guifg=#72aaca guibg=NONE    gui=NONE
 hi PmenuSel     ctermfg=NONE ctermbg=59   cterm=NONE      guifg=NONE    guibg=#3c3f42 gui=NONE
 hi VertSplit    ctermfg=59   ctermbg=59   cterm=NONE      guifg=#636567 guibg=#636567 gui=NONE
-hi Directory    ctermfg=74  ctermbg=NONE cterm=underline guifg=#b8d977 guibg=NONE    gui=NONE
+hi Directory    ctermfg=74   ctermbg=NONE cterm=underline guifg=#b8d977 guibg=NONE    gui=NONE
 hi Folded       ctermfg=102  ctermbg=16   cterm=NONE      guifg=#798188 guibg=#26292c gui=NONE
 
 hi IncSearch    ctermfg=16   ctermbg=231  cterm=bold      guifg=#26292c guibg=#f6f6f6 gui=NONE
-hi Search       ctermfg=231  ctermbg=67   cterm=bold      guifg=NONE    guibg=NONE    gui=underline
+hi Search       ctermfg=231  ctermbg=67   cterm=reverse,bold      guifg=NONE    guibg=NONE    gui=underline
 
 hi Normal       ctermfg=231  ctermbg=NONE   cterm=NONE         guifg=#f8f8f8 guibg=NONE gui=NONE
 hi Constant     ctermfg=229  ctermbg=NONE cterm=NONE         guifg=#b8d977 guibg=NONE    gui=NONE
