@@ -191,7 +191,3 @@ set ignorecase smartcase " Ignore case for search, but override for capitalized 
 set backup writebackup        " Enable backups
 set dir=~/.vim,/var/tmp       " Set swapfile directory
 set backupdir=~/.vim,/var/tmp " Set backup directory
-
-" === Miscellaneous ===
-
-call rainbow#load()

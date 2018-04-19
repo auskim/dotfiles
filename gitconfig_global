@@ -16,7 +16,6 @@
     mnemonicprefix = true
 [alias]
     a = add
-    s = status
     br = branch
     c = commit
     cl = clone
@@ -24,14 +23,16 @@
     cp = cherry-pick
     d = diff
     ds = diff --stat
-    h = help
     f = fetch
+    fl = log -u
+    h = help
+    l = log
     m = merge
     rb = rebase
     rs = reset
-    l = log
     rv = revert
-    r = remote -v
+    r = remote
+    s = status
 [push]
 	default = simple
 [rebase]
