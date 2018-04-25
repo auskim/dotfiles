@@ -1,5 +1,5 @@
 # Alias variations (for OS X and other systems, respectively)
-alias l="ls -AbFGhl"
+alias l="ls -AbFhl --color=auto"
 alias tac="tail -r"
 alias rg="rg --colors 'match:fg:blue' --colors 'match:style:intense' --colors 'line:fg:yellow' --colors 'path:fg:green' --colors 'match:style:bold' "
 
