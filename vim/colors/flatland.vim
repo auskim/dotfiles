@@ -33,7 +33,7 @@ hi Directory    ctermfg=74   ctermbg=NONE cterm=underline guifg=#b8d977 guibg=NO
 hi Folded       ctermfg=102  ctermbg=16   cterm=NONE      guifg=#798188 guibg=#26292c gui=NONE
 
 hi IncSearch    ctermfg=16   ctermbg=231  cterm=bold      guifg=#26292c guibg=#f6f6f6 gui=NONE
-hi Search       ctermfg=231  ctermbg=67   cterm=reverse,bold      guifg=NONE    guibg=NONE    gui=underline
+hi Search       ctermfg=67  ctermbg=231   cterm=bold      guifg=NONE    guibg=NONE    gui=underline
 
 hi Normal       ctermfg=231  ctermbg=NONE   cterm=NONE         guifg=#f8f8f8 guibg=NONE gui=NONE
 hi Constant     ctermfg=229  ctermbg=NONE cterm=NONE         guifg=#b8d977 guibg=NONE    gui=NONE

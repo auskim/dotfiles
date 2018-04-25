@@ -1,11 +1,18 @@
 # Path
 # -----
 
+# standard path
 export PATH=/usr/local/lib:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:$PATH
 
+# on macos, override with gnu coreutils (homebrew)
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$PATH
+
+# local utilities
 export PATH=~/.fzf/bin:/usr/local/texlive/2016basic/bin:~/.node/bin:/opt/X11/bin:$PATH
 
 export PATH=/usr/local/opt/ruby@2.3/bin:/usr/local/mysql/bin:$PATH
+
 
 # Variables
 # -----
