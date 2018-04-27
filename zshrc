@@ -6,7 +6,7 @@ source $HOME/.shell/antigen.zsh
 
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen-apply
+antigen apply
 
 eval "$(fasd --init auto)"
 
