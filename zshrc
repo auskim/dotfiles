@@ -12,9 +12,6 @@ antigen apply
 source $HOME/.profile
 source $HOME/.shell/alias.sh
 
-# fzf Key bindings
-[ -f ~/.shell/fzf.zsh ] && source ~/.shell/fzf.zsh
-
 # fasd init
 eval "$(fasd --init auto)"
 
@@ -43,3 +40,8 @@ setopt APPENDHISTORY
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.shell/.zsh_history
+
+# fzf Key bindings
+source ~/.shell/fzf.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

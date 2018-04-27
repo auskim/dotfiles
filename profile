@@ -33,7 +33,7 @@ export NOTE_DIR="~/Documents/Notational\ Data"
 export CODE_DIR="~/Code"
 
 # Modify fzf to use silver searcher
-export FZF_DEFAULT_COMMAND='rg --hidden --files -g !.git* -g "" '
+export FZF_DEFAULT_COMMAND='rg --hidden --files -g "!.git*" -g "" '
 export FZF_DEFAULT_OPTS="--preview '(less {})' --reverse --inline-info"
 export FZF_COMPLETION_TRIGGER='\'
 
