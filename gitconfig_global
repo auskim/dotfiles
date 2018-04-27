@@ -24,9 +24,9 @@
     d = diff
     ds = diff --stat
     f = fetch
-    fl = log -u
+    fl = "!git l -u"
     h = help
-    l = log
+    l = "log --graph --pretty=format:'%C(yellow)%h %Cgreen%ar %Cred%d %Creset%s%Cblue [%cn]'"
     m = merge
     rb = rebase
     rs = reset
