@@ -6,7 +6,7 @@ export PATH=/usr/local/lib:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sb
 
 # on macos, override with gnu coreutils (homebrew)
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$PATH
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 
 # local utilities
 export PATH=~/.fzf/bin:/usr/local/texlive/2016basic/bin:~/.node/bin:/opt/X11/bin:$PATH
@@ -33,8 +33,8 @@ export NOTE_DIR="~/Documents/Notational\ Data"
 export CODE_DIR="~/Code"
 
 # Modify fzf to use silver searcher
-export FZF_DEFAULT_COMMAND='rg --hidden --files -g ""'
-export FZF_DEFAULT_OPTS="--reverse --inline-info"
+export FZF_DEFAULT_COMMAND='rg --hidden --files -g !.git* -g "" '
+export FZF_DEFAULT_OPTS="--preview '(less {})' --reverse --inline-info"
 export FZF_COMPLETION_TRIGGER='\'
 
 # macos core foundation

@@ -24,8 +24,8 @@ set clipboard=unnamed          " Paste to system clipboard register
 
 call plug#begin() " Load vim-plug
 
-Plug '/usr/local/opt/fzf'             " fzf(.vim) fuzzy search
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin'}
+Plug 'junegunn/fzf.vim'               " fzf(.vim) fuzzy search
 Plug 'majutsushi/tagbar'              " displays tags within files
 Plug 'sjl/gundo.vim'                  " displays revision tree for undo/redo
 Plug 'junegunn/vim-easy-align'        " utility for aligning text
