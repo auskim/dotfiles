@@ -1,6 +1,13 @@
 # TODO: zsh color scheme
 # TODO: split for optimization?
 
+# === Source ===
+source $HOME/.profile
+source $HOME/.shell/alias.sh
+
+# fzf Key bindings
+[ -f ~/.shell/fzf.zsh ] && source ~/.shell/fzf.zsh
+
 # === Antigen ===
 source $HOME/.shell/antigen.zsh
 
@@ -36,9 +43,3 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.shell/.zsh_history
 
-# === Source ===
-source $HOME/.profile
-source $HOME/.shell/alias.sh
-
-# fzf Key bindings
-[ -f ~/.shell/fzf.zsh ] && source ~/.shell/fzf.zsh

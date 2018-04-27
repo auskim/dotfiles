@@ -11,7 +11,7 @@ duck () {
 
 # Alias for vim
 # alias v='nvim '
-alias v='f -e nvim'
+alias v='f -e vim'
 
 # Alias for history
 alias hist="history | tail"
