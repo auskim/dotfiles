@@ -1,13 +1,6 @@
 # TODO: zsh color scheme
 # TODO: split for optimization?
 
-# === Source ===
-source $HOME/.profile
-source $HOME/.shell/alias.sh
-
-# fzf Key bindings
-[ -f ~/.shell/fzf.zsh ] && source ~/.shell/fzf.zsh
-
 # === Antigen ===
 source $HOME/.shell/antigen.zsh
 
@@ -15,6 +8,14 @@ antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
+# === Source ===
+source $HOME/.profile
+source $HOME/.shell/alias.sh
+
+# fzf Key bindings
+[ -f ~/.shell/fzf.zsh ] && source ~/.shell/fzf.zsh
+
+# fasd init
 eval "$(fasd --init auto)"
 
 # === Prompt ===
@@ -42,4 +43,3 @@ setopt APPENDHISTORY
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.shell/.zsh_history
-
