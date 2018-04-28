@@ -189,5 +189,6 @@ set ignorecase smartcase " Ignore case for search, but override for capitalized 
 " === Backups === 
 
 set backup writebackup        " Enable backups
+set viminfo+=n~/.vim/viminfo  " Set viminfo location
 set dir=~/.vim,/var/tmp       " Set swapfile directory
 set backupdir=~/.vim,/var/tmp " Set backup directory

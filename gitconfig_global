@@ -1,5 +1,5 @@
 [core]
-    excludesfile = ~/.gitignore_global
+    excludesfile = $DOT_DIR/.gitignore_global
     commentChar = |
 [advice]
     pushNonFastForward = false

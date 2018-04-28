@@ -1,16 +1,34 @@
-#!/bin/sh
+#!/bin/sh 
 
-echo " --- Symlinking files..."
-ln -sf $PWD/bash_profile $HOME/.bash_profile
-cp $PWD/gitconfig $HOME/.gitconfig
-ln -sf $PWD/gitconfig_global $HOME/.gitconfig_global
-ln -sf $PWD/gitignore_global $HOME/.gitignore_global
-ln -sf $PWD/profile $HOME/.profile
-ln -sf $PWD/bashrc $HOME/.bashrc
-ln -sf $PWD/zshrc $HOME/.zshrc
+#TODO:
+# dotfile clean
+# dotfile update
+
+# maybe allow overriding this with parameter
+echo "export DOT_DIR=~/.dotfiles" > ~/.profile
+source ~/.profile
+
+mv $(dirname $0) $DOT_DIR > /dev/null 2>&1
+cd $DOT_DIR
+
+echo " --- configuring shell ---"
+if [ ! -f $HOME/.bash_profile ]; then
+	touch $HOME/.bash_profile
+fi
+echo "source $DOT_DIR/shell/bashrc" > $HOME/.bash_profile
+ln -sf $DOT_DIR/shell/bashrc $HOME/.bashrc
+ln -sf $DOT_DIR/shell/zshrc $HOME/.zshrc
+
+echo " --- configuring git ---"
+git config --global --add user.name "Austin Kim"
+git config --global --add core.excludesfile $DOT_DIR/gitignore_global
+git config --global --add include.path $DOT_DIR/gitconfig_global
+
+echo " --- configuring vim ---"
 ln -sf $PWD/vimrc $HOME/.vimrc
-mkdir $HOME/.shell
-mkdir $HOME/.vim
-ln -sf $PWD/shell/* $HOME/.shell
-ln -sf $PWD/vim/* $HOME/.vim
-echo " --- Done"
+ln -sf $PWD/vim/autoload $HOME/.vim/autoload
+ln -sf $PWD/vim/colors $HOME/.vim/colors
+
+
+echo " --- done ---"
+

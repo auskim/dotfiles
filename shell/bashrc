@@ -18,14 +18,11 @@ reset="\033[m"
 # Source
 ############
 
-# If it exists and is readable, source ~/.bash_local
-[[ -r ~/.bash_local ]] && . ~/.bash_local
+source ~/.profile
+source $DOT_DIR/shell/var
+source $DOT_DIR/shell/alias
 
-# source aliases
-source $HOME/.shell/alias.sh
-
-[ -f ~/.shell/fzf.bash ] && source ~/.shell/fzf.bash
-
+source $DOT_DIR/shell/*.bash
 ############
 # Variables
 ############
