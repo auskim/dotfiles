@@ -20,9 +20,11 @@ ln -sf $DOT_DIR/shell/bashrc $HOME/.bashrc
 ln -sf $DOT_DIR/shell/zshrc $HOME/.zshrc
 
 echo " --- configuring git ---"
-git config --global --add user.name "Austin Kim"
-git config --global --add core.excludesfile $DOT_DIR/gitignore_global
-git config --global --add include.path $DOT_DIR/gitconfig_global
+if [ ! -f $HOME/.gitconfig ]; then
+    git config --global --add user.name "Austin Kim"
+    git config --global --add core.excludesfile $DOT_DIR/gitignore_global
+    git config --global --add include.path $DOT_DIR/gitconfig_global
+fi
 
 echo " --- configuring vim ---"
 ln -sf $DOT_DIR/vimrc $HOME/.vimrc
