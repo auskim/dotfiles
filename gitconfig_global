@@ -1,5 +1,4 @@
 [core]
-    excludesfile = $DOT_DIR/.gitignore_global
     commentChar = |
 [advice]
     pushNonFastForward = false
@@ -24,9 +23,11 @@
     d = diff
     ds = diff --stat
     f = fetch
-    fl = "!git l -u"
     h = help
     l = "log --graph --pretty=format:'%C(yellow)%h %Cgreen%ar %Cred%d %Creset%s%Cblue [%cn]'"
+    ld = "!git l -c"
+    ls = "!git l -c --stat"
+    lf = "!git l -u"
     m = merge
     rb = rebase
     rs = reset
