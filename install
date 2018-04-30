@@ -25,10 +25,10 @@ git config --global --add core.excludesfile $DOT_DIR/gitignore_global
 git config --global --add include.path $DOT_DIR/gitconfig_global
 
 echo " --- configuring vim ---"
-ln -sf $PWD/vimrc $HOME/.vimrc
-ln -sf $PWD/vim/autoload $HOME/.vim/autoload
-ln -sf $PWD/vim/colors $HOME/.vim/colors
-
+ln -sf $DOT_DIR/vimrc $HOME/.vimrc
+mkdir -p ~/.vim/autoload
+mkdir -p ~/.vim/colors
+ln -sf $DOT_DIR/vim/autoload/* $HOME/.vim/autoload/
+ln -sf $DOT_DIR/vim/colors/* $HOME/.vim/colors/
 
 echo " --- done ---"
-
