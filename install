@@ -7,7 +7,7 @@
 
 DOT_DIR="~/.dotfiles"
 # maybe allow overriding this with parameter
-echo $DOT_DIR > ~/.profile
+echo "export DOT_DIR=$DOT_DIR" > ~/.profile
 source ~/.profile
 
 mv $(dirname $0) $DOT_DIR > /dev/null 2>&1
