@@ -3,9 +3,11 @@
 #TODO:
 # dotfile clean
 # dotfile update
+# configure nvim
 
+DOT_DIR="~/.dotfiles"
 # maybe allow overriding this with parameter
-echo "export DOT_DIR=~/.dotfiles" > ~/.profile
+echo $DOT_DIR > ~/.profile
 source ~/.profile
 
 mv $(dirname $0) $DOT_DIR > /dev/null 2>&1
@@ -23,7 +25,7 @@ echo " --- configuring git ---"
 if [ ! -f $HOME/.gitconfig ]; then
     git config --global --add user.name "Austin Kim"
     git config --global --add core.excludesfile $DOT_DIR/gitignore_global
-    git config --global --add include.path $DOT_DIR/gitconfig_global
+    git config --global --add include.path $DOT_DIR/gitconfig
 fi
 
 echo " --- configuring vim ---"
