@@ -3,7 +3,7 @@
 
 source ~/.profile
 # === Antigen ===
-source $DOT_DIR/shell/antigen.zsh
+source $DOT_DIR/antigen.zsh
 
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
