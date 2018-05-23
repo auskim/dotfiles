@@ -3,10 +3,11 @@
 
 source ~/.profile
 # === Antigen ===
-source $DOT_DIR/shell/antigen
+source $DOT_DIR/shell/antigen.zsh
 
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle tylerreckart/hyperzsh
 antigen apply
 
 # === Source ===
@@ -17,16 +18,16 @@ source $DOT_DIR/shell/alias
 eval "$(fasd --init auto)"
 
 # === Prompt ===
-local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
-local user_host='%{$fg[green]%}%n@%m%{$reset_color%}'
-local current_dir='%{$fg[blue]%}%~%{$reset_color%}'
-local git_branch='$(git_prompt_info)%{$reset_color%}'
-
-PROMPT="%B[%b${user_host}:${current_dir}${git_branch}%B]%b
-$ "
-
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%} ‹"
-ZSH_THEME_GIT_PROMPT_SUFFIX="›%{$reset_color%}"
+#local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
+#local user_host='%{$fg[green]%}%n@%m%{$reset_color%}'
+#local current_dir='%{$fg[blue]%}%~%{$reset_color%}'
+#local git_branch='$(git_prompt_info)%{$reset_color%}'
+#
+#PROMPT="%B[%b${user_host}:${current_dir}${git_branch}%B]%b
+#$ "
+#
+#ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%} ‹"
+#ZSH_THEME_GIT_PROMPT_SUFFIX="›%{$reset_color%}"
 
 # === Options ===
 export LSCOLORS=exGxcxdxbxegedabagacad
