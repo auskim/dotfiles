@@ -7,7 +7,8 @@ source $DOT_DIR/antigen.zsh
 
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle tylerreckart/hyperzsh
+antigen bundle denysdovhan/spaceship-prompt
+antigen theme denysdovhan/spaceship-prompt
 antigen apply
 
 # === Source ===
