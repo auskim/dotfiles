@@ -24,7 +24,7 @@ unset LC_ALL
 
 # Set standard terminal variables
 export LSCOLORS=exGxcxdxbxegedabagacad
-export EDITOR=vim
+export EDITOR=nvim
 
 # Set terminal colors
 export TERM=xterm-256color
