@@ -19,6 +19,7 @@ set wildmenu                   " Display wildmenu options
 "set cursorline                 " Always show cursorline
 set hidden                     " Hide windowless buffers
 set clipboard=unnamed          " Paste to system clipboard register
+set autoread
 
 " === Plugins ===
 
