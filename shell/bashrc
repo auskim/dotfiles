@@ -19,9 +19,6 @@ reset="\033[m"
 ############
 
 source ~/.profile
-source $DOT_DIR/shell/var
-source $DOT_DIR/shell/alias
-
 source $DOT_DIR/shell/*.bash
 ############
 # Variables
@@ -75,3 +72,10 @@ symbol='$([[ $? -ne 0 ]] && printf "%b" "$red_raw" || printf "%b" "$reset_raw")'
 
 # Set custom prompt
 export PS1="\[${UCOLOR}\]\u\[$yellow\]@\[${HCOLOR}\]\h\[$blue\] \[$blue\]\W\[$yellow\]\n\$\[$reset\] "
+
+##########
+# Import custom bashrc
+##########
+if [ -f $HOME/.bashrc_original ]; then
+  source $HOME/.bashrc_original
+fi

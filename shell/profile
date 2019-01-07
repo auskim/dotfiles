@@ -1,0 +1,8 @@
+DOT_DIR=~/.dotfiles
+
+if [ -f $HOME/.profile_original ]; then
+  source $HOME/.profile_original
+fi
+
+source $DOT_DIR/shell/var
+source $DOT_DIR/shell/alias

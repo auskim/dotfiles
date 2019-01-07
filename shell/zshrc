@@ -9,9 +9,9 @@ if [ ! -f $DOT_DIR/antigen.zsh ]; then
 fi
 
 source $DOT_DIR/antigen.zsh
-antigen use oh-my-zsh
+#antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen theme denysdovhan/spaceship-prompt spaceship
+antigen theme denysdovhan/spaceship-prompt
 antigen apply
 
 # === Options ===
@@ -28,8 +28,6 @@ HISTFILE=$DOT_DIR/shell/.zsh_history
 ZDOTDIR=$DOT_DIR/shell
 
 # === Source ===
-source $DOT_DIR/shell/var
-source $DOT_DIR/shell/alias
 for file in $DOT_DIR/shell/*.zsh; do
     source $file
 done

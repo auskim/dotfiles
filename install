@@ -5,34 +5,44 @@
 # dotfile update
 # configure nvim
 
-DOT_DIR="~/.dotfiles"
+DOT_DIR="$HOME/.dotfiles"
 # maybe allow overriding this with parameter
-echo "export DOT_DIR=$DOT_DIR" > ~/.profile
-source ~/.profile
 
-mv $(dirname $0) $DOT_DIR > /dev/null 2>&1
+mv $(dirname $0) $DOT_DIR/.. > /dev/null 2>&1
 cd $DOT_DIR
 
 echo " --- configuring shell ---"
-if [ ! -f $HOME/.bash_profile ]; then
-	touch $HOME/.bash_profile
+if [ -f $HOME/.profile ]; then
+  mv $HOME/.profile $HOME/.profile_original
 fi
-echo "source $DOT_DIR/shell/bashrc" > $HOME/.bash_profile
-ln -sf $DOT_DIR/shell/bashrc $HOME/.bashrc
-ln -sf $DOT_DIR/shell/zshrc $HOME/.zshrc
+
+if [ -f $HOME/.bash_profile ]; then
+  mv $HOME/.bash_profile $HOME/.bash_profile_original
+fi
+
+if [ -f $HOME/.bashrc ]; then
+  mv $HOME/.bashrc $HOME/.bashrc_original
+fi
+
+if [ -f $HOME/.zshrc ]; then
+  mv $HOME/.zshrc $HOME/.zshrc_original
+fi
+
+ln -s $DOT_DIR/shell/profile $HOME/.profile
+ln -s $DOT_DIR/shell/bashrc $HOME/.bashrc
+ln -s $DOT_DIR/shell/bash_profile $HOME/.bash_profile
+ln -s $DOT_DIR/shell/zshrc $HOME/.zshrc
 
 echo " --- configuring git ---"
-if [ ! -f $HOME/.gitconfig ]; then
-    git config --global --add user.name "Austin Kim"
-    git config --global --add core.excludesfile $DOT_DIR/gitignore_global
-    git config --global --add include.path $DOT_DIR/gitconfig
-fi
+git config --global --add user.name "Austin Kim"
+git config --global --add core.excludesfile $DOT_DIR/gitignore_global
+git config --global --add include.path $DOT_DIR/gitconfig
 
 echo " --- configuring vim ---"
 ln -sf $DOT_DIR/vimrc $HOME/.vimrc
 mkdir -p ~/.vim/autoload
 mkdir -p ~/.vim/colors
-ln -sf $DOT_DIR/vim/autoload/* $HOME/.vim/autoload/
-ln -sf $DOT_DIR/vim/colors/* $HOME/.vim/colors/
+ln -sf $DOT_DIR/vim/autoload/* $HOME/.vim/autoload
+ln -sf $DOT_DIR/vim/colors/* $HOME/.vim/colors
 
 echo " --- done ---"
