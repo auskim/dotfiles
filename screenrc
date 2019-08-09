@@ -1,8 +1,10 @@
-escape ``
+#escape ``
 
 startup_message off
 vbell off
 altscreen on
+rendition so =00
+caption string "%{03} "
 
 defscrollback 10000
 
@@ -10,3 +12,6 @@ windowlist string "%4n %h%=%f"
 
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+
+source .screen_layout
+layout save def

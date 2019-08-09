@@ -1,48 +1,52 @@
-#!/bin/sh 
+#!/bin/sh
 
 #TODO:
 # dotfile clean
 # dotfile update
 # configure nvim
 
-DOT_DIR="$HOME/.dotfiles"
 # maybe allow overriding this with parameter
+DOT_DIR="$HOME/.dotfiles"
+
+SHELLS="bash zsh"
 
 mv $(dirname $0) $DOT_DIR/.. > /dev/null 2>&1
 cd $DOT_DIR
 
+mkdir -p $HOME/.shell
+if [ ! -f $HOME/.shell/profile ] ; then
+  echo "--- creating profile ---"
+  cat "export DOT_DIR=$DOT_DIR" > $HOME/.shell/profile
+fi
+
 echo " --- configuring shell ---"
-if [ -f $HOME/.profile ]; then
-  mv $HOME/.profile $HOME/.profile_original
-fi
 
-if [ -f $HOME/.bash_profile ]; then
-  mv $HOME/.bash_profile $HOME/.bash_profile_original
-fi
+# if shell files exist already, move them and create new symlinks
+# doesn't replace existing symlinks
+for shell in $SHELLS; do
+  if [ ! -h $HOME/.${shell}rc ]; then
+    if [ -f $HOME/.${shell}rc ]; then
+      echo ".${shell}rc exists - moving to .${shell}rc_original"
+      mv $HOME/.${shell}rc $HOME/.${shell}rc_original
+    fi
+  fi
+  ln -sf $DOT_DIR/${shell}/${shell}rc $HOME/.${shell}rc
+  echo "created symlink for ${shell}rc"
+done
 
-if [ -f $HOME/.bashrc ]; then
-  mv $HOME/.bashrc $HOME/.bashrc_original
-fi
-
-if [ -f $HOME/.zshrc ]; then
-  mv $HOME/.zshrc $HOME/.zshrc_original
-fi
-
-ln -s $DOT_DIR/shell/profile $HOME/.profile
-ln -s $DOT_DIR/shell/bashrc $HOME/.bashrc
-ln -s $DOT_DIR/shell/bash_profile $HOME/.bash_profile
-ln -s $DOT_DIR/shell/zshrc $HOME/.zshrc
+#override bash_profile
+ln -sf $DOT_DIR/bash/bash_profile $HOME/.bash_profile
+echo "created symlink for bash_profile"
 
 echo " --- configuring git ---"
 git config --global --add user.name "Austin Kim"
-git config --global --add core.excludesfile $DOT_DIR/gitignore_global
-git config --global --add include.path $DOT_DIR/gitconfig
+git config --global --add core.excludesfile $DOT_DIR/git/gitignore_global
+git config --global --add include.path $DOT_DIR/git/gitconfig
 
+#TODO this doesn't change much or ever
 echo " --- configuring vim ---"
-ln -sf $DOT_DIR/vimrc $HOME/.vimrc
-mkdir -p ~/.vim/autoload
-mkdir -p ~/.vim/colors
-ln -sf $DOT_DIR/vim/autoload/* $HOME/.vim/autoload
-ln -sf $DOT_DIR/vim/colors/* $HOME/.vim/colors
+ln -sf $DOT_DIR/vim/vimrc $HOME/.vimrc
+ln -sf $DOT_DIR/vim/autoload $HOME/.vim/autoload
+ln -sf $DOT_DIR/vim/colors $HOME/.vim/colors
 
 echo " --- done ---"

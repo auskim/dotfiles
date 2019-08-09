@@ -1,6 +1,6 @@
 # TODO: zsh color scheme
 
-source ~/.profile
+source $HOME/.shell/profile
 
 # === Antigen ===
 export ADOTDIR=$DOT_DIR/antigen
@@ -24,16 +24,13 @@ setopt APPENDHISTORY
 
 HISTSIZE=100000
 SAVEHIST=100000
-HISTFILE=$DOT_DIR/shell/.zsh_history
-ZDOTDIR=$DOT_DIR/shell
+HISTFILE=$HOME/.shell/.zsh_history
+ZDOTDIR=$DOT_DIR/zsh
 
 # === Source ===
-for file in $DOT_DIR/shell/*.zsh; do
+for file in $DOT_DIR/zsh/*; do
     source $file
 done
-
-# fasd init
-eval "$(fasd --init auto)"
 
 # === Prompt ===
 #local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
