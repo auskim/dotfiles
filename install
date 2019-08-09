@@ -10,7 +10,7 @@ DOT_DIR="$HOME/.dotfiles"
 
 SHELLS="bash zsh"
 
-mv $(dirname $0) $DOT_DIR/.. > /dev/null 2>&1
+mv $(readlink $0) $DOT_DIR/.. > /dev/null 2>&1
 cd $DOT_DIR
 
 mkdir -p $HOME/.shell
@@ -46,7 +46,10 @@ git config --global --add include.path $DOT_DIR/git/gitconfig
 #TODO this doesn't change much or ever
 echo " --- configuring vim ---"
 ln -sf $DOT_DIR/vim/vimrc $HOME/.vimrc
-ln -sf $DOT_DIR/vim/autoload $HOME/.vim/autoload
-ln -sf $DOT_DIR/vim/colors $HOME/.vim/colors
+ln -sf $DOT_DIR/vim/autoload $HOME/.vim
+ln -sf $DOT_DIR/vim/colors $HOME/.vim
+
+echo " --- configuring screen ---"
+ln -sf $DOT_DIR/screenrc $HOME/.screenrc
 
 echo " --- done ---"
