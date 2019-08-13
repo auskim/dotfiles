@@ -8,35 +8,38 @@
 # maybe allow overriding this with parameter
 DOT_DIR="$HOME/.dotfiles"
 
-SHELLS="bash zsh"
-
-mv $(readlink $0) $DOT_DIR/.. > /dev/null 2>&1
+mv $(dirname $(readlink -f $0)) $DOT_DIR > /dev/null 2>&1
 cd $DOT_DIR
 
 mkdir -p $HOME/.shell
 if [ ! -f $HOME/.shell/profile ] ; then
   echo "--- creating profile ---"
-  cat "export DOT_DIR=$DOT_DIR" > $HOME/.shell/profile
+  echo "export DOT_DIR=$DOT_DIR" > $HOME/.shell/profile
+  echo 'source $DOT_DIR/shell/profile' >> $HOME/.shell/profile
 fi
 
 echo " --- configuring shell ---"
-
 # if shell files exist already, move them and create new symlinks
-# doesn't replace existing symlinks
-for shell in $SHELLS; do
-  if [ ! -h $HOME/.${shell}rc ]; then
-    if [ -f $HOME/.${shell}rc ]; then
-      echo ".${shell}rc exists - moving to .${shell}rc_original"
-      mv $HOME/.${shell}rc $HOME/.${shell}rc_original
+for file in $(ls sources); do
+  if [ ! -h $HOME/.$file ]; then
+    if [ -f $HOME/.$file ]; then
+      echo ".$file exists - moving to .${file}_original"
+      mv $HOME/.$file $HOME/.${file}_original
     fi
   fi
-  ln -sf $DOT_DIR/${shell}/${shell}rc $HOME/.${shell}rc
-  echo "created symlink for ${shell}rc"
+  ln -sf ${DOT_DIR}/sources/$file $HOME/.$file
+  echo "created symlink for $file"
 done
-
-#override bash_profile
-ln -sf $DOT_DIR/bash/bash_profile $HOME/.bash_profile
-echo "created symlink for bash_profile"
+#for shell in $SHELLS; do
+#  if [ ! -h $HOME/.${shell}rc ]; then
+#    if [ -f $HOME/.${shell}rc ]; then
+#      echo ".${shell}rc exists - moving to .${shell}rc_original"
+#      mv $HOME/.${shell}rc $HOME/.${shell}rc_original
+#    fi
+#  fi
+#  ln -sf $DOT_DIR/${shell}/${shell}rc $HOME/.${shell}rc
+#  echo "created symlink for ${shell}rc"
+#done
 
 echo " --- configuring git ---"
 git config --global --add user.name "Austin Kim"
@@ -45,11 +48,7 @@ git config --global --add include.path $DOT_DIR/git/gitconfig
 
 #TODO this doesn't change much or ever
 echo " --- configuring vim ---"
-ln -sf $DOT_DIR/vim/vimrc $HOME/.vimrc
 ln -sf $DOT_DIR/vim/autoload $HOME/.vim
 ln -sf $DOT_DIR/vim/colors $HOME/.vim
-
-echo " --- configuring screen ---"
-ln -sf $DOT_DIR/screenrc $HOME/.screenrc
 
 echo " --- done ---"

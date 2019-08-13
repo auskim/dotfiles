@@ -8,11 +8,11 @@ fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "$FZF_DIR/shell/completion.$(basename $(echo $0))" 2> /dev/null
+[[ $- == *i* ]] && source "$FZF_DIR/shell/completion.zsh" 2> /dev/null
 
 # Key bindings
 # ------------
-source "$FZF_DIR/shell/key-bindings.$(basename $(echo $0))"
+source "$FZF_DIR/shell/key-bindings.zsh"
 
 _fzf_compgen_path() {
     fd --hidden --follow --exclude ".git" . "$1"

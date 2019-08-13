@@ -11,10 +11,9 @@ set -o vi
 # Source
 ############
 
-# DOT_DIR=$(dirname $(readlink -f $0))
-source $HOME/.shell/profile
-source $DOT_DIR/profile
-source $DOT_DIR/bash/*
+source $HOME/.shell/*
+source $DOT_DIR/bash/*.bash
+
 ############
 # Variables
 ############
