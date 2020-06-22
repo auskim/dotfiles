@@ -12,7 +12,7 @@ set -o vi
 ############
 
 source <(cat $HOME/.shell/*)
-source $DOT_DIR/bash/*.bash
+source <(cat $DOT_DIR/bash/*.bash)
 
 ############
 # Variables

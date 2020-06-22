@@ -16,24 +16,29 @@
 [alias]
     a = add
     br = branch
+    brd = "branch -d"
     c = commit
+    cam = "commit --amend"
     cl = clone
     co = checkout
+    cob = "checkout -b"
     cp = cherry-pick
     d = diff
-    ds = diff --stat
+    ds = "diff --stat"
     f = fetch
     h = help
-    l = "log --graph --pretty=format:'%C(yellow)%h %Cgreen%ar %Cred%d %Creset%s%Cblue [%cn]'"
-    ld = "!git l -c"
-    ls = "!git l -c --stat"
+    l = "log --graph --pretty=format:'%C(yellow)%h %Cgreen%ar %Cblue[%cn] %Cred%d\n%Creset%B'"
+    ls = "log --graph --pretty=format:'%C(yellow)%h %Cgreen%ar %Cblue[%cn] %Cred%d %Creset%s'"
+    ld = "!git l -c --stat"
     lf = "!git l -u"
     m = merge
     rb = rebase
+    rbi = "rebase -i"
     rs = reset
+    rsh = "reset --hard"
     rv = revert
-    r = remote
-    s = status
+    r = "remote -v"
+    s = "status -s"
 [push]
 	default = simple
 [rebase]
