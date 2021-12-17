@@ -1,0 +1,5 @@
+brew install coreutils vim zsh ripgrep fasd node python java ruby
+brew install iterm2 alfred firefox 1password karabiner-elements
+brew install discord slack spotify steam zoom utorrent
+brew install basictex the-unarchiver vlc 
+brew install doxygen gnupg2 tig pandoc tree bwm-ng
