@@ -48,7 +48,6 @@ git config --global --add include.path $DOT_DIR/git/gitconfig
 
 #TODO this doesn't change much or ever
 echo " --- configuring vim ---"
-ln -sf $DOT_DIR/vim/autoload $HOME/.vim
-ln -sf $DOT_DIR/vim/colors $HOME/.vim
+ln -sf $DOT_DIR/vim $HOME/.vim
 
 echo " --- done ---"
