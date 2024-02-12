@@ -41,6 +41,7 @@
     s = "status -s"
 [push]
 	default = simple
+    autoSetupRemote = true
 [rebase]
     stat = true
 [merge]

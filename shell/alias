@@ -1,7 +1,7 @@
 # Alias variations (for OS X and other systems, respectively)
 alias l="ls -AbFhl --color=auto"
 alias rg="rg --colors 'match:fg:blue' --colors 'match:style:intense' --colors 'line:fg:yellow' --colors 'path:fg:green' --colors 'match:style:bold' "
-alias t="ssh -t austin-test 'tmux -u -CC new -A -s a'"
+alias t="ssh -t austin-dev 'tmux -u -CC new -A -s a'"
 
 # TODO: revisit duck, doesnt work anymore
 # Alias for du (displays disk usage)
