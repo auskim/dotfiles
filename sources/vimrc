@@ -21,6 +21,8 @@ set hidden                     " Hide windowless buffers
 set clipboard=unnamed          " Paste to system clipboard register
 set autoread
 
+let g:ale_completion_enabled = 1
+
 " === Plugins ===
 
 call plug#begin() " Load vim-plug
@@ -32,11 +34,11 @@ Plug 'sjl/gundo.vim'                  " displays revision tree for undo/redo
 Plug 'junegunn/vim-easy-align'        " utility for aligning text
 Plug 'vim-airline/vim-airline'        " custom statusline
 Plug 'vim-airline/vim-airline-themes' " airline color schemes
-Plug 'gcmt/taboo.vim'                 " custom vim tab overrides
 Plug 'luochen1990/rainbow'            " matching recursive paren matching
 Plug 'dense-analysis/ale'
 
 call plug#end()
+
 
 " vim-plug
 nnoremap <leader>pi :PlugInstall<cr>
@@ -45,14 +47,17 @@ nnoremap <leader>ps :PlugStatus<cr>
 nnoremap <leader>pc :PlugClean<cr>
 
 " vim-airline
-let g:airline_theme='powerlineish'
+let g:airline_theme='simple'
 let g:airline_powerline_fonts = 1
-let g:airline_section_b = airline#section#create(['%t', ' ', '%m', '%y', ' ', '%r', 'readonly'])
-let g:airline_section_c = airline#section#create(['tagbar'])
-let g:airline_section_gutter = airline#section#create(['%='])
-let g:airline_section_x = airline#section#create([])
-let g:airline_section_y = airline#section#create(['%03b', ' ', '0x%02B'])
-let g:airline_section_z = airline#section#create(['%c', ' : ', '%l', '/', '%L', ' (', '%p', '%%)'])
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+"let g:airline_section_b = airline#section#create(['%t', ' ', '%m', '%y', ' ', '%r', 'readonly'])
+"let g:airline_section_c = airline#section#create(['tagbar'])
+"let g:airline_section_gutter = airline#section#create(['%='])
+"let g:airline_section_x = airline#section#create([])
+"let g:airline_section_y = airline#section#create(['%03b', ' ', '0x%02B'])
+"let g:airline_section_z = airline#section#create(['%c', ' : ', '%l', '/', '%L', ' (', '%p', '%%)'])
 
 " fzf
 nnoremap <leader>d :Files .<cr>
