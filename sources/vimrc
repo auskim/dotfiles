@@ -21,7 +21,6 @@ set hidden                     " Hide windowless buffers
 set clipboard=unnamed          " Paste to system clipboard register
 set autoread
 
-let g:ale_completion_enabled = 1
 
 " === Plugins ===
 
@@ -45,6 +44,19 @@ nnoremap <leader>pi :PlugInstall<cr>
 nnoremap <leader>pu :PlugUpdate<cr>
 nnoremap <leader>ps :PlugStatus<cr>
 nnoremap <leader>pc :PlugClean<cr>
+
+" ale
+let g:ale_completion_enabled = 1
+let g:ale_virtualtext_cursor = 'current'
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_floating_preview = 1
+nnoremap <Tab> :ALEHover<cr>
+
+let g:ale_linters = { 'python': ['pylsp', 'ruff'] }
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " vim-airline
 let g:airline_theme='simple'
@@ -120,7 +132,7 @@ nnoremap <leader><Space> za
 nnoremap <leader>n :tabnew<cr>
 
 " Misc
-nnoremap <Tab> K
+"nnoremap <Tab> K
 nnoremap , :
 inoremap jk <Esc>
 nmap <enter> o<Esc>
