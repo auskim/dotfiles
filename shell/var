@@ -45,3 +45,6 @@ export FZF_COMPLETION_TRIGGER='\'
 
 # macos core foundation
 export __CF_USER_TEXT_ENCODING="0x08000100:0x0"
+
+# android simulator for macos
+export ANDROID_HOME=$HOME/Library/Android/sdk && export PATH=$PATH:$ANDROID_HOME/emulator && export PATH=$PATH:$ANDROID_HOME/platform-tools
