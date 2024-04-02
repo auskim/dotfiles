@@ -53,7 +53,8 @@ let g:ale_sign_warning = '-'
 let g:ale_floating_preview = 1
 nnoremap <Tab> :ALEHover<cr>
 
-let g:ale_linters = { 'python': ['pylsp', 'ruff'] }
+let g:ale_linters = { 'python': ['pylsp', 'ruff'] , 'javascript': ['eslint']}
+let g:ale_fixers = { 'python': ['ruff_format'] , 'go': ['gofmt'], 'javascript': ['eslint', 'prettier-eslint']}
 let g:ale_lint_on_text_changed = 0
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -83,10 +84,6 @@ nnoremap <leader>m :Marks<cr>
 nnoremap <leader>c :Commits<cr>
 nnoremap <leader>/ :Rg<cr>
 let g:fzf_layout = { 'down': '~30%' }
-
-" taboo
-let g:taboo_tab_format=" %f%m "
-let g:taboo_modified_tab_flag="[+]"
 
 " vim-easy-align
 xmap <leader>a <Plug>(EasyAlign)
@@ -138,7 +135,7 @@ nnoremap , :
 inoremap jk <Esc>
 nmap <enter> o<Esc>
 cnoremap <c-w> <home>\<<end>\>
-nnoremap \ :nohlsearch<CR>
+nnoremap \ :nohlsearch<CR>:ALEFix<CR>
 nnoremap <S-u> <C-r>
 nnoremap <leader>s :so ~/.vimrc<cr>
 " nnoremap <Tab> :Explore<cr> " make repeatedly useable somehow
