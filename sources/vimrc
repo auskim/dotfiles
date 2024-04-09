@@ -20,6 +20,7 @@ set wildmenu                   " Display wildmenu options
 set hidden                     " Hide windowless buffers
 set clipboard=unnamed          " Paste to system clipboard register
 set autoread
+set fillchars=eob:\ 
 
 
 " === Plugins ===
@@ -56,6 +57,7 @@ nnoremap <Tab> :ALEHover<cr>
 let g:ale_linters = { 'python': ['pylsp', 'ruff'] , 'javascript': ['eslint']}
 let g:ale_fixers = { 'python': ['ruff_format'] , 'go': ['gofmt'], 'javascript': ['eslint', 'prettier-eslint']}
 let g:ale_lint_on_text_changed = 0
+let g:ale_fix_on_save = 1
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -135,7 +137,7 @@ nnoremap , :
 inoremap jk <Esc>
 nmap <enter> o<Esc>
 cnoremap <c-w> <home>\<<end>\>
-nnoremap \ :nohlsearch<CR>:ALEFix<CR>
+nnoremap \ :nohlsearch<CR>
 nnoremap <S-u> <C-r>
 nnoremap <leader>s :so ~/.vimrc<cr>
 " nnoremap <Tab> :Explore<cr> " make repeatedly useable somehow
