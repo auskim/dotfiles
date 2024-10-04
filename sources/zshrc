@@ -3,16 +3,20 @@
 source $HOME/.shell/profile
 
 # === Antigen ===
-export ADOTDIR=$DOT_DIR/antigen
-if [ ! -f $DOT_DIR/antigen.zsh ]; then
-    curl -L git.io/antigen > $DOT_DIR/antigen.zsh
+export ZPLUG_HOME=~/.zplug
+if [ ! -d $ZPLUG_HOME/ ]; then
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 fi
 
-source $DOT_DIR/antigen.zsh
-#antigen use oh-my-zsh
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen theme denysdovhan/spaceship-prompt spaceship
-antigen apply
+source $ZPLUG_HOME/init.zsh
+zplug "rupa/z", use:z.sh
+zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug load 
+
+if ! zplug check --verbose; then
+    zplug install
+fi
 
 # === Options ===
 set -o vi
@@ -34,15 +38,3 @@ ZDOTDIR=$DOT_DIR/zsh
 for file in $DOT_DIR/zsh/*.zsh; do
     source $file
 done
-
-# === Prompt ===
-#local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
-#local user_host='%{$fg[green]%}%n@%m%{$reset_color%}'
-#local current_dir='%{$fg[blue]%}%~%{$reset_color%}'
-#local git_branch='$(git_prompt_info)%{$reset_color%}'
-#
-#PROMPT="%B[%b${user_host}:${current_dir}${git_branch}%B]%b
-#$ "
-#
-#ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%} ‹"
-#ZSH_THEME_GIT_PROMPT_SUFFIX="›%{$reset_color%}"

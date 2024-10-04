@@ -1,6 +1,3 @@
 #source <(cat $DOT_DIR/shell/*)
 source $DOT_DIR/shell/var
 source $DOT_DIR/shell/alias
-
-# fasd init
-eval "$(fasd --init auto)"
