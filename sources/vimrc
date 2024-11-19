@@ -27,7 +27,6 @@ set fillchars=eob:\
 
 call plug#begin() " Load vim-plug
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'               " fzf(.vim) fuzzy search
 Plug 'majutsushi/tagbar'              " displays tags within files
 Plug 'sjl/gundo.vim'                  " displays revision tree for undo/redo
@@ -40,6 +39,7 @@ Plug 'github/copilot.vim'
 
 call plug#end()
 
+set rtp+=/opt/homebrew/opt/fzf
 
 " vim-plug
 nnoremap <leader>pi :PlugInstall<cr>
@@ -189,7 +189,7 @@ set pastetoggle=<F3>         " Toggles auto formatting of pasted material
 
 augroup auto
     " Override tabbing settings for css, html, js with 2 spaces per tab
-    autocmd FileType css,html,js,yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType typescriptreact,javascriptreact,typescript,javascript,css,html,js,yaml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 command! -bang -nargs=* Rg
