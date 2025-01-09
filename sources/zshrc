@@ -35,6 +35,7 @@ HISTFILE=$HOME/.shell/.zsh_history
 ZDOTDIR=$DOT_DIR/zsh
 
 # === Source ===
+source <(fzf --zsh)
 for file in $DOT_DIR/zsh/*.zsh; do
     source $file
 done

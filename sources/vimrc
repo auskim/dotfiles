@@ -55,8 +55,8 @@ let g:ale_sign_warning = '-'
 let g:ale_floating_preview = 1
 nnoremap <Tab> :ALEHover<cr>
 
-let g:ale_linters = { 'python': ['pylsp', 'ruff'] , 'javascript': ['eslint']}
-let g:ale_fixers = { 'python': ['ruff_format'] , 'go': ['gofmt'], 'javascript': ['eslint', 'prettier-eslint']}
+let g:ale_linters = { 'python': ['pylsp', 'ruff'] , 'javascript': [ 'eslint'], 'typescript': [ 'eslint'], 'typescriptreact': [ 'eslint']}
+let g:ale_fixers = { 'python': ['ruff_format'] , 'go': ['gofmt'], 'javascript': [  'eslint','prettier-eslint'], 'typescript': [  'eslint','prettier-eslint'], 'typescriptreact': [  'eslint','prettier-eslint']}
 let g:ale_lint_on_text_changed = 0
 let g:ale_fix_on_save = 1
 
@@ -194,7 +194,7 @@ augroup END
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   "rg --column --line-number --no-heading --color=always --colors '\''line:fg:yellow'\'' --colors '\''path:fg:green'\'' --colors '\''match:style:bold'\'' ".shellescape(<q-args>), 1,
+  \   "rg -S --column --line-number --no-heading --color=always --colors '\''line:fg:yellow'\'' --colors '\''path:fg:green'\'' --colors '\''match:style:bold'\'' ".shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
