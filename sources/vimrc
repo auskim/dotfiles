@@ -27,13 +27,15 @@ set fillchars=eob:\
 
 call plug#begin() " Load vim-plug
 
-Plug 'junegunn/fzf.vim'               " fzf(.vim) fuzzy search
-Plug 'majutsushi/tagbar'              " displays tags within files
-Plug 'sjl/gundo.vim'                  " displays revision tree for undo/redo
-Plug 'junegunn/vim-easy-align'        " utility for aligning text
-Plug 'vim-airline/vim-airline'        " custom statusline
-Plug 'vim-airline/vim-airline-themes' " airline color schemes
-Plug 'luochen1990/rainbow'            " matching recursive paren matching
+Plug 'junegunn/fzf.vim'                 " fzf(.vim) fuzzy search
+Plug 'preservim/nerdtree'               " file tree
+Plug 'tpope/vim-fugitive'               " git integration
+Plug 'tpope/vim-rhubarb'                " github integration
+Plug 'majutsushi/tagbar'                " displays tags within files
+Plug 'junegunn/vim-easy-align'          " utility for aligning text
+Plug 'vim-airline/vim-airline'          " custom statusline
+Plug 'vim-airline/vim-airline-themes'   " airline color schemes
+Plug 'junegunn/rainbow_parentheses.vim' " matching recursive paren matching
 Plug 'dense-analysis/ale'
 Plug 'github/copilot.vim'
 
@@ -56,7 +58,7 @@ let g:ale_floating_preview = 1
 nnoremap <Tab> :ALEHover<cr>
 
 let g:ale_linters = { 'python': ['pylsp', 'ruff'] , 'javascript': [ 'eslint'], 'typescript': [ 'eslint'], 'typescriptreact': [ 'eslint']}
-let g:ale_fixers = { 'python': ['ruff_format'] , 'go': ['gofmt'], 'javascript': [  'eslint','prettier-eslint'], 'typescript': [  'eslint','prettier-eslint'], 'typescriptreact': [  'eslint','prettier-eslint']}
+let g:ale_fixers = { 'python': ['ruff_format'] , 'go': ['gofmt'], 'javascript': ['eslint'], 'typescript': [  'eslint','prettier-eslint'], 'typescriptreact': ['eslint']}
 let g:ale_lint_on_text_changed = 0
 let g:ale_fix_on_save = 1
 
@@ -69,6 +71,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#whitespace#checks = ['indent', 'mixed-indent-file', 'conflicts']
 "let g:airline_section_b = airline#section#create(['%t', ' ', '%m', '%y', ' ', '%r', 'readonly'])
 "let g:airline_section_c = airline#section#create(['tagbar'])
 "let g:airline_section_gutter = airline#section#create(['%='])
@@ -78,7 +81,6 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 " fzf
 nnoremap <leader>d :Files .<cr>
-nnoremap <leader>f :Files $CODE_DIR<cr>
 nnoremap <leader>g :GFiles<cr>
 nnoremap <leader>h :Helptags<cr>
 nnoremap <leader><Tab> :History:<cr>
@@ -94,12 +96,6 @@ nmap <leader>a <Plug>(EasyAlign)
 
 " tagbar
 nnoremap <leader>t :TagbarToggle<cr>
-
-" gundo
-nnoremap <leader>u :GundoToggle<cr>
-
-" rainbow
-let g:rainbow_active = 1
 
 " === Keybindings ===
 
