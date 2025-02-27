@@ -5,6 +5,7 @@
 " === General ===
 
 set nocompatible               " Avoid compatibility features
+set notgc                      " No GUI colors
 set enc=utf-8                  " Sets vim character set
 set fileencoding=utf-8         " Sets file encoding
 set t_Co=256                   " 256 colors
